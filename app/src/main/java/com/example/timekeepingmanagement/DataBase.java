@@ -1,10 +1,13 @@
 package com.example.timekeepingmanagement;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
 
 public class DataBase extends SQLiteOpenHelper {
     public DataBase(@Nullable Context context) {
@@ -48,5 +51,18 @@ public class DataBase extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
+    }
+
+    public ArrayList<Product> readProducts(){
+        ArrayList<Product> data = new ArrayList<>();
+        String sql = "select * from product";
+        SQLiteDatabase database = getReadableDatabase();
+        Cursor cursor = database.rawQuery(sql, null);
+        if(cursor.moveToFirst()){
+            do{
+                data.add(new Product(cursor.getInt(0), cursor.getString(1), cursor.getFloat(2)));
+            }while (cursor.moveToNext());
+        }
+        return data;
     }
 }

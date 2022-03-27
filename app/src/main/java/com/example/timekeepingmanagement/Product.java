@@ -1,7 +1,7 @@
 package com.example.timekeepingmanagement;
 
 import java.io.Serializable;
-
+// Nhi test
 public class Product implements Serializable {
     int id;
     String name;

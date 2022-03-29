@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,11 +19,12 @@ public class ProductAdapter extends ArrayAdapter {
     Context context;
     int resource;
 
+
     public ProductAdapter(@NonNull Context context, int resource, @NonNull List<Product> data) {
         super(context, resource, data);
         this.data = data;
-        this.context=context;
-        this.resource=resource;
+        this.context = context;
+        this.resource = resource;
     }
 
     @Override
@@ -41,6 +43,7 @@ public class ProductAdapter extends ArrayAdapter {
         tvId.setText(product.getId()+" ");
         tvName.setText(product.getName());
         tvPrice.setText(product.getPrice()+"");
+
 
         return convertView;
     }

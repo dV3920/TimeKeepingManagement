@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -45,10 +47,22 @@ public class ProductActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        lvListProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Product product = data.get(i);
+                Intent intent = new Intent(ProductActivity.this, AddProductActivity.class);
+                intent.putExtra("isAdd",false);
+                intent.putExtra("Object",product);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
     void init(){
-        data.addAll(db.readProducts()); //new Product(1,"Thép",1000)
+        data.addAll(db.readProducts());
     }
 
 

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class AddProductActivity extends AppCompatActivity {
@@ -32,6 +33,14 @@ public class AddProductActivity extends AppCompatActivity {
         btnCancel = findViewById(R.id.btnCancelProduct);
         db = new DataBase(getApplicationContext());
         isAdd = (Boolean) getIntent().getSerializableExtra("isAdd");
+        TextView tvHeaderAddProduct = findViewById(R.id.tvHeaderAddProduct);
+        if(isAdd == false){
+            Product product = (Product) getIntent().getSerializableExtra("Object");
+            edId.setText(product.getId()+"");
+            edName.setText(product.getName());
+            edPrice.setText(product.getPrice()+"");
+            tvHeaderAddProduct.setText("Thông Tin Sản Phẩm");
+        }
 
     }
 
@@ -39,14 +48,28 @@ public class AddProductActivity extends AppCompatActivity {
         btnApply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Boolean isSuccess =  db.addProduct(getProduct());
-                if(isSuccess){
-                    Toast.makeText(getApplicationContext(),"Thêm thành công",Toast.LENGTH_LONG).show();
-                }else {
-                    Toast.makeText(getApplicationContext(),"Lỗi",Toast.LENGTH_LONG).show();
+                if(isAdd){
+                    Boolean isSuccess =  db.addProduct(getProduct());
+                    if(isSuccess){
+                        Toast.makeText(getApplicationContext(),"Thêm thành công",Toast.LENGTH_LONG).show();
+                    }else {
+                        Toast.makeText(getApplicationContext(),"Lỗi",Toast.LENGTH_LONG).show();
+                    }
+                    Intent intent = new Intent(AddProductActivity.this, ProductActivity.class);
+                    startActivity(intent);
                 }
-                Intent intent = new Intent(AddProductActivity.this, ProductActivity.class);
-                startActivity(intent);
+                else
+                {
+                    Boolean isSuccess =  db.editProduct(getProduct());
+                    if(isSuccess){
+                        Toast.makeText(getApplicationContext(),"Thành công",Toast.LENGTH_LONG).show();
+                    }else {
+                        Toast.makeText(getApplicationContext(),"Lỗi",Toast.LENGTH_LONG).show();
+                    }
+                    Intent intent = new Intent(AddProductActivity.this, ProductActivity.class);
+                    startActivity(intent);
+                }
+
             }
         });
         btnCancel.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +81,16 @@ public class AddProductActivity extends AppCompatActivity {
 
     }
     Product getProduct(){
-        return new Product(0,edName.getText().toString(),Integer.parseInt(edPrice.getText().toString()));
+        int id;
+        String ID = edId.getText().toString();
+        if(ID.equals("")){
+            id = 0;
+        }
+        else{
+            id = Integer.parseInt(ID);
+        }
+
+        return new Product(id,edName.getText().toString(),Float.parseFloat(edPrice.getText().toString()));
     }
 
 }

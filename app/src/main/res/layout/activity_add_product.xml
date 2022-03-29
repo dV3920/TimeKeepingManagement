@@ -18,7 +18,8 @@
             android:text="Thêm sản phẩm"
             android:gravity="center_vertical"
             android:textSize="30sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:id="@+id/tvHeaderAddProduct"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -87,7 +88,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Thêm "
+                android:text="Lưu "
                 android:textSize="20sp"
                 android:id="@+id/btnApplyProduct"
                 android:layout_weight="1"

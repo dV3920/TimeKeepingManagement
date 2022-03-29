@@ -18,7 +18,7 @@ public class ProductAdapter extends ArrayAdapter {
     Context context;
     int resource;
 
-    public ProductAdapter(@NonNull Context context, int resource, List<Product> data) {
+    public ProductAdapter(@NonNull Context context, int resource, @NonNull List<Product> data) {
         super(context, resource, data);
         this.data = data;
         this.context=context;
@@ -37,17 +37,10 @@ public class ProductAdapter extends ArrayAdapter {
         TextView tvId = convertView.findViewById(R.id.tvId);
         TextView tvName = convertView.findViewById(R.id.tvName);
         TextView tvPrice = convertView.findViewById(R.id.tvPrice);
-        ImageView ivEdit = convertView.findViewById(R.id.ivEdit);
         Product product = data.get(position);
-        tvId.setText(product.getId());
+        tvId.setText(product.getId()+" ");
         tvName.setText(product.getName());
         tvPrice.setText(product.getPrice()+"");
-        ivEdit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
 
         return convertView;
     }

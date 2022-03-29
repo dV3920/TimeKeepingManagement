@@ -4,10 +4,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DataBase extends SQLiteOpenHelper {
     public DataBase(@Nullable Context context) {
@@ -17,35 +20,36 @@ public class DataBase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String sql = "Create table Employee (" +
-                        "id int NOT NULL PRIMARY KEY AUTOINCREMENT, " +
+                        "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         "firstName text NOT NULL, " +
                         "lastName text NOT NULL, " +
-                        "factory text NOT NULL" +
-                        ")";
+                        "factory text NOT NULL)";
         sqLiteDatabase.execSQL(sql);
-        sql =   "Create table Product (" +
-                "id int NOT NULL PRIMARY KEY AUTOINCREMENT, " +
+        sql = "Create table Product (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "name text NOT NULL, " +
                 "price float NOT NULL)" ;
         sqLiteDatabase.execSQL(sql);
-        sql =   "Create table TimeKeeping(\n" +
-                "id int NOT NULL PRIMARY KEY AUTOINCREMENT," +
+        sql = "Create table TimeKeeping(\n" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "idEmployee int, " +
                 "dateTimeKeeping datetime, " +
-                "FOREIGN KEY(idEmployee) REFERENCES Employee(id)" +
-                ")" ;
+                "FOREIGN KEY(idEmployee) REFERENCES Employee(id))" ;
         sqLiteDatabase.execSQL(sql);
-        sql =   "Create table InfoTimeKeeping(\n" +
-                "idTime int NOT NULL, " +
-                "idProduct int NOT NULL, " +
+        sql ="Create table InfoTimeKeeping(\n" +
+                "idTime INTEGER, " +
+                "idProduct INTEGER, " +
                 "num1Pro int NOT NULL, " +
                 "num0Pro int NOT NULL, " +
                 "PRIMARY KEY(idTime,idProduct),\n" +
                 "FOREIGN KEY(idTime) REFERENCES TimeKeeping(id)," +
-                "FOREIGN KEY(idProduct) REFERENCES Product(id)" +
-                ")"; // num1Pro: Số thành phẩm, num0Pro: số phế phẩm
+                "FOREIGN KEY(idProduct) REFERENCES Product(id))"; // num1Pro: Số thành phẩm, num0Pro: số phế phẩm
         sqLiteDatabase.execSQL(sql);
 
+        sqLiteDatabase.execSQL("INSERT INTO Employee values(?,?,?,?)",new String[]{"1","Nguyễn","Văn A","A"});
+        sqLiteDatabase.execSQL("INSERT INTO Product values(?,?,?)",new String[]{"1","Sắt","1000"});
+        sqLiteDatabase.execSQL("INSERT INTO TimeKeeping values(?,?,datetime('now'))",new String[]{"1","1"});
+        sqLiteDatabase.execSQL("INSERT INTO InfoTimeKeeping values(?,?,?,?)",new String[]{"1","0","10","1"});
     }
 
     @Override
@@ -63,6 +67,18 @@ public class DataBase extends SQLiteOpenHelper {
                 data.add(new Product(cursor.getInt(0), cursor.getString(1), cursor.getFloat(2)));
             }while (cursor.moveToNext());
         }
+        cursor.close();
         return data;
+    }
+
+    public Boolean addProduct(Product product){
+        try{
+            SQLiteDatabase database = getWritableDatabase();
+            database.execSQL("INSERT INTO Product(name, price) values(?,?)",new String[]{product.getName(), product.getPrice()+""});
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
     }
 }

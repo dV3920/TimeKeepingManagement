@@ -3,7 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/layout/activity_add_product.xml" value="0.259375" />
+        <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/layout/activity_product.xml" value="0.259375" />
         <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/layout/raw_product.xml" value="0.259375" />
       </map>

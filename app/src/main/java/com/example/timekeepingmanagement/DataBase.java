@@ -81,4 +81,15 @@ public class DataBase extends SQLiteOpenHelper {
             return false;
         }
     }
+
+    public Boolean editProduct(Product product){
+        try{
+            SQLiteDatabase database = getWritableDatabase();
+            database.execSQL("Update Product set name=?,price=? where id=?",new String[]{product.getName(), product.getPrice()+"", product.getId()+""});
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

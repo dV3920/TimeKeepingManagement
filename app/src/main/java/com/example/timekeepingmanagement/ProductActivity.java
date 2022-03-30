@@ -47,16 +47,17 @@ public class ProductActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        lvListProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Product product = data.get(i);
-                Intent intent = new Intent(ProductActivity.this, AddProductActivity.class);
-                intent.putExtra("isAdd",false);
-                intent.putExtra("Object",product);
-                startActivity(intent);
-            }
-        });
+//        lvListProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Product product = data.get(i);
+//                Intent intent = new Intent(ProductActivity.this, AddProductActivity.class);
+//                intent.putExtra("isAdd",false);
+//                intent.putExtra("Object",product);
+//                startActivity(intent);
+//            }
+//        });
+
 
 
     }

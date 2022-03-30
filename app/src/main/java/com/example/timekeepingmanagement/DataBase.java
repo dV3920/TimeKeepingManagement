@@ -92,4 +92,26 @@ public class DataBase extends SQLiteOpenHelper {
             return false;
         }
     }
+
+    public Boolean removeProduct(Product product){
+        try{
+            SQLiteDatabase database = getWritableDatabase();
+            database.execSQL("Delete From Product where id=?",new String[]{product.getId()+""});
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public Boolean removeProduct(int id){
+        try{
+            SQLiteDatabase database = getWritableDatabase();
+            database.execSQL("Delete From Product where id=?",new Integer[]{id});
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

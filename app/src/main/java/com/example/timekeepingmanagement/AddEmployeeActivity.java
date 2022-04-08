@@ -31,6 +31,7 @@ public class AddEmployeeActivity extends AppCompatActivity {
         edId = findViewById(R.id.edIdEmployee);
         edFirstName = findViewById(R.id.edFirstNameEmployee);
         edLastName = findViewById(R.id.edLastNameEmployee);
+        edFactory = findViewById(R.id.edFactory);
         btnApply = findViewById(R.id.btnApplyEmployee);
         btnCancel = findViewById(R.id.btnCancelEmployee);
         db = new DataBase(getApplicationContext());
@@ -40,7 +41,8 @@ public class AddEmployeeActivity extends AppCompatActivity {
             Employee employee = (Employee) getIntent().getSerializableExtra("Object");
             edId.setText(employee.getId()+"");
             edFirstName.setText(employee.getFirstName());
-            edLastName.setText(employee.getLastName()+"");
+            edLastName.setText(employee.getLastName());
+            edFactory.setText(employee.getFactory());
             tvHeaderAddEmployee.setText("Thông Tin Nhân Viên");
         }
 
@@ -73,7 +75,10 @@ public class AddEmployeeActivity extends AppCompatActivity {
     }
     Employee getEmployee(){
         int id;
-        String ID = edId.getText().toString();
+        String ID = edId.getText().toString(),
+        firstName = edFirstName.getText().toString(),
+                lastName = edLastName.getText().toString(),
+                factory = edFactory.getText().toString();
         if(ID.equals("")){
             id = 0;
         }
@@ -81,6 +86,7 @@ public class AddEmployeeActivity extends AppCompatActivity {
             id = Integer.parseInt(ID);
         }
 
-        return new Employee(id,edFirstName.getText().toString(),edLastName.getText().toString(), edFactory.getText().toString());
+
+        return new Employee(id,firstName,lastName,factory);
     }
 }

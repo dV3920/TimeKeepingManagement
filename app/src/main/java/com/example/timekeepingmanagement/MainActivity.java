@@ -27,15 +27,18 @@ public class MainActivity extends AppCompatActivity {
         btnProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ProductActivity.class);
+               Intent intent = new Intent(MainActivity.this, ProductActivity.class);
                 startActivity(intent);
+    //            Toast.makeText(getApplicationContext(),"Hello World", Toast.LENGTH_LONG).show();
+
             }
         });
         btnEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, EmployeeActivity.class);
+               Intent intent = new Intent(MainActivity.this, EmployeeActivity.class);
                 startActivity(intent);
+            //    Toast.makeText(getApplicationContext(),"Hello World Cong Nhan", Toast.LENGTH_LONG).show();
             }
         });
 

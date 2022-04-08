@@ -58,7 +58,9 @@ public class EmployeeAdapter extends ArrayAdapter {
         tvLastName.setText(employee.getLastName());
         tvFactory.setText(employee.getFactory());
 
-        ImageView ivEditEmployee= convertView.findViewById(R.id.ivAddEmployee);
+
+
+        ImageView ivEditEmployee= convertView.findViewById(R.id.ivEditEmployee);
         ImageView ivRemoveEmployee = convertView.findViewById(R.id.ivRemoveEmployee);
 
         ivEditEmployee.setOnClickListener(new View.OnClickListener() {

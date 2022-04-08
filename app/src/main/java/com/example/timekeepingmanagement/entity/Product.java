@@ -1,4 +1,4 @@
-package com.example.timekeepingmanagement;
+package com.example.timekeepingmanagement.entity;
 
 import java.io.Serializable;
 // Nhi test

@@ -8,40 +8,44 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.example.timekeepingmanagement.R;
+import com.example.timekeepingmanagement.adapter.EmployeeAdapter;
 import com.example.timekeepingmanagement.adapter.ProductAdapter;
+import com.example.timekeepingmanagement.entity.Employee;
 import com.example.timekeepingmanagement.entity.Product;
 
 import java.util.ArrayList;
 
-public class ProductActivity extends AppCompatActivity {
-    ListView lvListProduct;
+public class EmployeeActivity extends AppCompatActivity {
+    ListView lvListEmployee;
     DataBase db;
-    ArrayList<Product> data = new ArrayList<>();
-    ProductAdapter productAdapter;
-    ImageView ivAddProduct;
+    ArrayList<Employee> data = new ArrayList<>();
+    EmployeeAdapter employeeAdapter;
+    ImageView ivAddEmployee;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product);
+        setContentView(R.layout.activity_employee);
         setControl();
         setEvent();
     }
 
     void  setControl(){
         db = new DataBase(getApplicationContext());
-        lvListProduct = findViewById(R.id.lvListProduct);
-        ivAddProduct = findViewById(R.id.ivAddProduct);
+        lvListEmployee = findViewById(R.id.lvListEmployee);
+        ivAddEmployee = findViewById(R.id.ivAddEmployee);
     }
 
     void setEvent(){
         init();
-        productAdapter = new ProductAdapter(this,R.layout.raw_product,data);
-        lvListProduct.setAdapter(productAdapter);
-        ivAddProduct.setOnClickListener(new View.OnClickListener() {
+        employeeAdapter = new EmployeeAdapter(this,R.layout.raw_product,data);
+        lvListEmployee.setAdapter(employeeAdapter);
+        ivAddEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ProductActivity.this, AddProductActivity.class);
+                Intent intent = new Intent(EmployeeActivity.this, AddEmployeeActivity.class);
                 intent.putExtra("isAdd",true);
                 startActivity(intent);
             }
@@ -49,9 +53,6 @@ public class ProductActivity extends AppCompatActivity {
     }
 
     void init(){
-        data.addAll(db.readProducts());
+        data.addAll(db.readEmployees());
     }
-
-
-
 }

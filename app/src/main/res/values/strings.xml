@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">TimeKeepingManagement</string>
+    <string name="name_layout_employee">DANH SÁCH NHÂN VIÊN</string>
+    <string name="tv_id_employee">Mã nhân viên:</string>
+    <string name="tv_firstname_employee">Họ:</string>
+    <string name="tv_lastname_employee">Tên:</string>
+    <string name="tv_factory_employee">Phân xưởng:</string>
 </resources>

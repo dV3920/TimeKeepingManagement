@@ -1,4 +1,4 @@
-package com.example.timekeepingmanagement;
+package com.example.timekeepingmanagement.adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -9,12 +9,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.example.timekeepingmanagement.AddProductActivity;
+import com.example.timekeepingmanagement.DataBase;
+import com.example.timekeepingmanagement.R;
+import com.example.timekeepingmanagement.entity.Product;
 
 import java.util.List;
 

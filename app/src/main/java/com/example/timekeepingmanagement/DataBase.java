@@ -4,13 +4,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.example.timekeepingmanagement.entity.Employee;
+import com.example.timekeepingmanagement.entity.Product;
+
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class DataBase extends SQLiteOpenHelper {
     public DataBase(@Nullable Context context) {
@@ -108,6 +108,53 @@ public class DataBase extends SQLiteOpenHelper {
         try{
             SQLiteDatabase database = getWritableDatabase();
             database.execSQL("Delete From Product where id=?",new Integer[]{id});
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public Boolean removeEmployee(int id){
+        try{
+            SQLiteDatabase database = getWritableDatabase();
+            database.execSQL("Delete From Employee where id=?",new Integer[]{id});
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public ArrayList<Employee> readEmployees(){
+        ArrayList<Employee> data = new ArrayList<>();
+        String sql = "select * from employee";
+        SQLiteDatabase database = getReadableDatabase();
+        Cursor cursor = database.rawQuery(sql, null);
+        if(cursor.moveToFirst()){
+            do{
+                data.add(new Employee(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3)));
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+        return data;
+    }
+
+    public Boolean addEmpoyee(Employee employee){
+        try{
+            SQLiteDatabase database = getWritableDatabase();
+            database.execSQL("INSERT INTO Employee(firstName, lastName, factory) values(?,?,?)",new String[]{employee.getFirstName(), employee.getLastName(), employee.getFactory()});
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public Boolean editEmployee(Employee employee){
+        try{
+            SQLiteDatabase database = getWritableDatabase();
+            database.execSQL("Update Employee set firstName=?,lastName=?,factory=? where id=?",new String[]{employee.getFirstName(), employee.getLastName(), employee.getFactory(),employee.getId()+""});
             return true;
         }catch (Exception e){
             e.printStackTrace();

@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnProduct, btnEmployee;
+    Button btnProduct, btnEmployee, btnTimeKeeping;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,23 +21,33 @@ public class MainActivity extends AppCompatActivity {
     void setControl(){
         btnProduct = findViewById(R.id.btnProduct);
         btnEmployee = findViewById(R.id.btnEmployee);
+        btnTimeKeeping = findViewById(R.id.btnTimeKeeping);
     }
 
     void setEvent(){
         btnProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ProductActivity.class);
+               Intent intent = new Intent(MainActivity.this, ProductActivity.class);
                 startActivity(intent);
+    //            Toast.makeText(getApplicationContext(),"Hello World", Toast.LENGTH_LONG).show();
+
             }
         });
         btnEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, EmployeeActivity.class);
+               Intent intent = new Intent(MainActivity.this, EmployeeActivity.class);
+                startActivity(intent);
+            //    Toast.makeText(getApplicationContext(),"Hello World Cong Nhan", Toast.LENGTH_LONG).show();
+            }
+        });
+        btnTimeKeeping.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ListChamCongActivity.class);
                 startActivity(intent);
             }
         });
-
     }
 }

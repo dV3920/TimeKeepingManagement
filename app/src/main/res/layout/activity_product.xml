@@ -1,41 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProductActivity"
-    android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="20sp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Danh sách sản phẩm"
-            android:textSize="30sp"
-            android:layout_weight="3"
-            android:textStyle="bold"
-            android:layout_marginLeft="40sp"
-            android:layout_gravity="center_horizontal"/>
+    android:layout_width="match_parent">
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/ic_baseline_add_circle_24"
-            android:id="@+id/ivAddProduct"/>
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".ProductActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="348dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="40sp"
+                android:layout_weight="3"
+                android:text="@string/name_layout_product"
+                android:textAllCaps="true"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/ivAddProduct"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_baseline_add_circle_24" />
+        </LinearLayout>
+
+
+        <ListView
+            android:id="@+id/lvListProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="05sp"
+            android:layout_weight="3">
+
+        </ListView>
+
     </LinearLayout>
 
-
-    <ListView
-        android:layout_width="match_parent"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lvListProduct"
-        android:layout_margin="05sp"
-        android:layout_weight="3">
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#48c6ef"
+        android:clickable="true"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="24dp"
+        app:srcCompat="@drawable/ic_plus"
+        app:tint="#FFFFFF" />
 
-    </ListView>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

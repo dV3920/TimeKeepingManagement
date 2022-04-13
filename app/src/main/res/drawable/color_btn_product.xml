@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:name="color_productsssss">
+        <shape>
+            <gradient
+                android:name="color_btn_product1"
+                android:angle="45"
+                android:startColor="#FFF700"
+                android:endColor="#FFFDAB"
+                android:type="linear" />
+            <corners android:radius="10dp"/>
+        </shape>
+    </item>
+</selector>

@@ -1,59 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    android:layout_gravity="center"
+    android:background="@drawable/gradient_background"
+    android:gravity="center"
     android:orientation="vertical"
-    android:layout_gravity="center">
+    tools:context=".MainActivity">
 
     <TextView
-        android:layout_marginTop="20sp"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="Quản lý chấm công" android:textSize="30sp"
-      android:textStyle="bold"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintLeft_toLeftOf="parent"
-      app:layout_constraintRight_toRightOf="parent"
-        android:layout_gravity="center"
-      app:layout_constraintTop_toTopOf="parent"
-        android:layout_weight="1"/>
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|center_vertical"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="@string/title"
+        android:textAllCaps="true"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:shadowColor="@color/grey_font"
+        android:shadowDx="-10"
+        android:shadowDy="-10"
+        android:shadowRadius="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
+    <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center"
-        android:layout_weight="2">
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Công nhân"
-            android:layout_gravity="center"
-            android:id="@+id/btnEmployee"/>
+        android:layout_gravity="center|center_horizontal|center_vertical"
+        android:foregroundGravity="center_vertical|center|center_horizontal"
+        android:orientation="vertical">
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sản Phẩm"
+            android:id="@+id/btnEmployee"
+            android:layout_width="170dp"
+            android:layout_height="120dp"
+            android:layout_row="0"
+            android:layout_column="0"
             android:layout_gravity="center"
-            android:id="@+id/btnProduct"/>
+            android:layout_margin="10dp"
+            android:background="@drawable/color_btn_worker"
+            android:drawableTop="@mipmap/ic_worker1"
+            android:paddingTop="10dp"
+            android:text="@string/workers"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:backgroundTint="@null" />
+
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Chấm Công"
+            android:id="@+id/btnProduct"
+            android:layout_width="170dp"
+            android:layout_height="120dp"
+            android:layout_row="0"
+            android:layout_column="1"
             android:layout_gravity="center"
-            android:id="@+id/btnTimeKeeping"/>
+            android:layout_margin="10dp"
+            android:background="@drawable/color_btn_product"
+            android:drawableTop="@mipmap/ic_product1"
+            android:fontFamily="sans-serif-medium"
+            android:paddingTop="10dp"
+            android:text="@string/products"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:backgroundTint="@null" />
+
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Thông tin chấm công"
+            android:id="@+id/btnTimeKeeping"
+            android:layout_width="170dp"
+            android:layout_height="120dp"
+            android:layout_row="1"
+            android:layout_column="0"
             android:layout_gravity="center"
-            android:id="@+id/btnInfoTimeKeeping"/>
-    </LinearLayout>
+            android:layout_margin="10dp"
+            android:background="@drawable/color_btn_timekeeping"
+            android:drawableTop="@mipmap/ic_timekeeping1"
+            android:paddingTop="10dp"
+            android:text="@string/timekeeping"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:backgroundTint="@null" />
+
+        <Button
+            android:id="@+id/btnInfoTimeKeeping"
+            android:layout_width="170dp"
+            android:layout_height="120dp"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/color_btn_timesheet"
+            android:drawableTop="@mipmap/ic_timesheet1"
+            android:text="@string/timesheets"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:backgroundTint="@null" />
+    </GridLayout>
 
 
-  </LinearLayout>
+</LinearLayout>

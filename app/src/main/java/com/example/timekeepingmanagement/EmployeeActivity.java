@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.timekeepingmanagement.R;
 import com.example.timekeepingmanagement.adapter.EmployeeAdapter;
@@ -40,7 +41,7 @@ public class EmployeeActivity extends AppCompatActivity {
 
     void setEvent(){
         init();
-        employeeAdapter = new EmployeeAdapter(this,R.layout.raw_product,data);
+        employeeAdapter = new EmployeeAdapter(this,R.layout.raw_employee,data);
         lvListEmployee.setAdapter(employeeAdapter);
         ivAddEmployee.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TimeKeepingManagement</string>
+    <string name="app_name">Quản Lý Chấm Công</string>
     <string name="title">quản lí chấm công</string>
     <string name="workers">công nhân</string>
     <string name="timekeeping">chấm công</string>
@@ -10,7 +10,7 @@
     <string name="tv_firstname_employee">Họ:</string>
     <string name="tv_lastname_employee">Tên:</string>
     <string name="tv_factory_employee">Phân xưởng:</string>
-    <string name="name_layout_employee">danh sách công nhân</string>
+    <string name="name_layout_employee">DANH SÁCH CÔNG NHÂN</string>
 
     <string name="name_layout_product">danh sách sản phẩm</string>
     <string name="tv_id_product">Mã sản phẩm:</string>

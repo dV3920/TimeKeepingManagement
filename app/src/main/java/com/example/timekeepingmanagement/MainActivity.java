@@ -28,8 +28,9 @@ public class MainActivity extends AppCompatActivity {
         btnProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               Intent intent = new Intent(MainActivity.this, ProductActivity.class);
-                startActivity(intent);
+            Intent intent = new Intent(MainActivity.this, ProductActivity.class);
+               startActivity(intent);
+
             }
         });
         btnEmployee.setOnClickListener(new View.OnClickListener() {

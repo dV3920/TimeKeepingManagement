@@ -32,12 +32,6 @@
                 android:textAllCaps="true"
                 android:textSize="30sp"
                 android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/ivAddProduct"
-                android:layout_width="40dp"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_baseline_add_circle_24" />
         </LinearLayout>
 
 

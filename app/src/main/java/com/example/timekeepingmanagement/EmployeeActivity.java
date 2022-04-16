@@ -5,15 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.Toast;
 
-import com.example.timekeepingmanagement.R;
+import android.widget.ListView;
+
 import com.example.timekeepingmanagement.adapter.EmployeeAdapter;
-import com.example.timekeepingmanagement.adapter.ProductAdapter;
 import com.example.timekeepingmanagement.entity.Employee;
-import com.example.timekeepingmanagement.entity.Product;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -22,7 +19,7 @@ public class EmployeeActivity extends AppCompatActivity {
     DataBase db;
     ArrayList<Employee> data = new ArrayList<>();
     EmployeeAdapter employeeAdapter;
-    ImageView ivAddEmployee;
+    FloatingActionButton btnAdd;
 
 
     @Override
@@ -36,14 +33,14 @@ public class EmployeeActivity extends AppCompatActivity {
     void  setControl(){
         db = new DataBase(getApplicationContext());
         lvListEmployee = findViewById(R.id.lvListEmployee);
-        ivAddEmployee = findViewById(R.id.ivAddEmployee);
+        btnAdd = findViewById(R.id.floatingActionButton2);
     }
 
     void setEvent(){
         init();
         employeeAdapter = new EmployeeAdapter(this,R.layout.raw_employee,data);
         lvListEmployee.setAdapter(employeeAdapter);
-        ivAddEmployee.setOnClickListener(new View.OnClickListener() {
+        btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(EmployeeActivity.this, AddEmployeeActivity.class);

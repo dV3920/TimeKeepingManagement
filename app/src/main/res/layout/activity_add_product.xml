@@ -9,94 +9,108 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:layout_margin="20sp"
         android:gravity="center_horizontal"
-        android:layout_margin="20sp">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="20dp">
+
         <TextView
+            android:id="@+id/tvHeaderAddProduct"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Thêm sản phẩm"
             android:gravity="center_vertical"
+            android:text="Thêm sản phẩm"
             android:textSize="30sp"
-            android:textStyle="bold"
-            android:id="@+id/tvHeaderAddProduct"/>
+            android:textStyle="bold" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="Mã sản phẩm: "
-                android:textSize="20sp"
-                android:layout_weight="1"/>
+                android:textSize="20sp" />
+
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/edIdProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="4"
-                android:editable="false"/>
+                android:editable="false" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="Tên sản phẩm: "
-                android:textSize="20sp"
-                android:layout_weight="1"/>
+                android:textSize="20sp" />
+
             <EditText
+                android:id="@+id/edNameProduct"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/edNameProduct"
                 android:layout_weight="4"
-                android:inputType="textAutoComplete"/>
+                android:inputType="textAutoComplete" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="Đơn giá: "
-                android:textSize="20sp"
-                android:layout_weight="1"/>
+                android:textSize="20sp" />
+
             <EditText
+                android:id="@+id/edPriceProduct"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/edPriceProduct"
                 android:layout_weight="2"
-                android:inputType="number"/>
+                android:inputType="number" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginTop="20sp"
+            android:orientation="horizontal"
             android:padding="20sp">
+
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hủy "
-                android:textSize="20sp"
                 android:id="@+id/btnCancelProduct"
-                android:layout_weight="1"
-                android:layout_marginRight="20sp"/>
-            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lưu "
-                android:textSize="20sp"
-                android:id="@+id/btnApplyProduct"
+                android:layout_marginRight="20sp"
                 android:layout_weight="1"
-                android:layout_marginLeft="20sp"/>
+                android:text="Hủy "
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btnApplyProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20sp"
+                android:layout_weight="1"
+                android:text="Lưu "
+                android:textSize="20sp" />
         </LinearLayout>
 
     </LinearLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

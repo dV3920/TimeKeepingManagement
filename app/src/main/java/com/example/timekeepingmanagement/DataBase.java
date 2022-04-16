@@ -9,8 +9,13 @@ import androidx.annotation.Nullable;
 
 import com.example.timekeepingmanagement.entity.Employee;
 import com.example.timekeepingmanagement.entity.Product;
+import com.example.timekeepingmanagement.entity.TimeKeeping;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class DataBase extends SQLiteOpenHelper {
     public DataBase(@Nullable Context context) {
@@ -160,5 +165,20 @@ public class DataBase extends SQLiteOpenHelper {
             e.printStackTrace();
             return false;
         }
+    }
+    public ArrayList<TimeKeeping> readTimeKeeping() throws ParseException {
+        ArrayList<TimeKeeping> data = new ArrayList<>();
+        String sql = "select * from timekeeping";
+        SQLiteDatabase database = getReadableDatabase();
+        Cursor cursor = database.rawQuery(sql, null);
+        if(cursor.moveToFirst()){
+            do{
+                DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss",
+                        Locale.ENGLISH);
+                data.add(new TimeKeeping(cursor.getInt(0), cursor.getInt(1), format.parse(cursor.getString(2))));
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+        return data;
     }
 }

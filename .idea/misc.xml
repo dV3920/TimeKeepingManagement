@@ -3,7 +3,29 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-<<<<<<< HEAD
+
+        <entry key="..\:/Programs/Android Projects/app/src/main/res/drawable/color_btn_product.xml" value="0.1" />
+        <entry key="..\:/Programs/Android Projects/app/src/main/res/drawable/color_btn_timekeeping.xml" value="0.1" />
+        <entry key="..\:/Programs/Android Projects/app/src/main/res/drawable/color_btn_timesheet.xml" value="0.1" />
+        <entry key="..\:/Programs/Android Projects/app/src/main/res/drawable/color_btn_worker.xml" value="0.1" />
+        <entry key="..\:/Programs/Android Projects/app/src/main/res/drawable/gradient_background.xml" value="0.1" />
+        <entry key="..\:/Programs/Android Projects/app/src/main/res/drawable/gradient_listview_background.xml" value="0.1" />
+        <entry key="..\:/Programs/Android Projects/app/src/main/res/drawable/ic__7315__1_.xml" value="0.1" />
+        <entry key="..\:/Programs/Android Projects/app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.1" />
+        <entry key="..\:/Programs/Android Projects/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.1" />
+        <entry key="..\:/Programs/Android Projects/app/src/main/res/drawable/ic_baseline_remove_circle_outline_24.xml" value="0.1" />
+        <entry key="..\:/Programs/Android Projects/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Programs/Android Projects/app/src/main/res/drawable/long_btn_background.xml" value="0.1" />
+        <entry key="..\:/Programs/Android Projects/app/src/main/res/layout/activity_add_employee.xml" value="0.16799999999999998" />
+        <entry key="..\:/Programs/Android Projects/app/src/main/res/layout/activity_employee.xml" value="0.16" />
+        <entry key="..\:/Programs/Android Projects/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Programs/Android Projects/app/src/main/res/layout/activity_product.xml" value="0.2" />
+        <entry key="..\:/Programs/Android Projects/app/src/main/res/layout/raw_employee.xml" value="0.1" />
+        <entry key="..\:/Programs/Android Projects/app/src/main/res/layout/raw_product.xml" value="0.264" />
+        <entry key="..\:/Programs/Android Projects/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/layout/activity_product.xml" value="0.259375" />
+        <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/layout/raw_product.xml" value="0.259375" />
         <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/activity_add_employee.xml" value="0.1721014492753623" />
         <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/activity_employee.xml" value="0.1" />
         <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/activity_main.xml" value="0.25" />
@@ -13,7 +35,7 @@
         <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/raw_cham_cong.xml" value="0.1" />
         <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/raw_employee.xml" value="0.1721014492753623" />
         <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/layout/activity_main.xml" value="0.259375" />
-=======
+
         <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/layout/activity_add_employee.xml" value="0.25" />
         <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/layout/activity_add_product.xml" value="0.259375" />
         <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/layout/activity_employee.xml" value="0.1" />
@@ -21,7 +43,6 @@
         <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/layout/activity_product.xml" value="0.264" />
         <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/layout/raw_employee.xml" value="0.1" />
         <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/layout/raw_product.xml" value="0.264" />
->>>>>>> b0dc028bf7f1bee458d96ea4dfa4b906505e3992
       </map>
     </option>
   </component>

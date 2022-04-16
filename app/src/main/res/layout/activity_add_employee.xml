@@ -58,6 +58,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tv_lastname_employee"
+                android:inputType="textCapSentences"
                 android:textSize="20sp"/>
             <EditText
                 android:layout_width="match_parent"

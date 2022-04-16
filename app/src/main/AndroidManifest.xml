@@ -19,6 +19,15 @@
             android:name=".ProductActivity"
             android:exported="false" />
         <activity
+            android:name=".EmployeeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListChamCongActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddEmployeeActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

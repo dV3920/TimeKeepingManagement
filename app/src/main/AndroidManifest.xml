@@ -28,6 +28,9 @@
             android:name=".AddEmployeeActivity"
             android:exported="false" />
         <activity
+            android:name=".AddChamCongActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

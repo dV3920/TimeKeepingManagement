@@ -12,6 +12,7 @@ import com.example.timekeepingmanagement.adapter.EmployeeAdapter;
 import com.example.timekeepingmanagement.adapter.TimeKeepingAdapter;
 import com.example.timekeepingmanagement.entity.Employee;
 import com.example.timekeepingmanagement.entity.TimeKeeping;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ public class ListChamCongActivity extends AppCompatActivity {
     DataBase db;
     ArrayList<TimeKeeping> data = new ArrayList<>();
     TimeKeepingAdapter timeKeepingAdapter;
+    FloatingActionButton btnAdd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,11 +41,19 @@ public class ListChamCongActivity extends AppCompatActivity {
         init();
         timeKeepingAdapter = new TimeKeepingAdapter(this,R.layout.raw_cham_cong,data);
         lvListChamCong.setAdapter(timeKeepingAdapter);
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ListChamCongActivity.this, AddChamCongActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setControl() {
         db = new DataBase(getApplicationContext());
         lvListChamCong = findViewById(R.id.lvListChamCong);
+        btnAdd = findViewById(R.id.addChamCong);
     }
     void init() throws ParseException {
         data.addAll(db.readTimeKeeping());

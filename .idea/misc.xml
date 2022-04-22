@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/activity_add_employee.xml" value="0.20244565217391305" />
+        <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/activity_add_product.xml" value="0.25" />
+        <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/activity_employee.xml" value="0.1" />
+        <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/activity_timekeeping.xml" value="0.2188034188034188" />
+        <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/list_cham_cong.xml" value="0.12952898550724637" />
+        <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/raw_cham_cong.xml" value="0.20244565217391305" />
         <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/drawable/color_btn_timesheet.xml" value="0.1255" />
         <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/layout/activity_add_employee.xml" value="0.25" />
         <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/layout/activity_add_product.xml" value="0.259375" />

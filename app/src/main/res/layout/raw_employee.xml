@@ -1,104 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:background="@drawable/gradient_listview_background"
+android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="3">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tv_id_employee"
-                    android:textSize="20sp"
-                    android:layout_weight="1"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_weight="9"
-                    android:id="@+id/tvIdEmployee"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tv_firstname_employee"
-                    android:textSize="20sp"
-                    android:layout_weight="1"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_weight="9"
-                    android:id="@+id/tvFistNameEmployee"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tv_lastname_employee"
-                    android:textSize="20sp"
-                    android:layout_weight="1"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_weight="9"
-                    android:id="@+id/tvLastNameEmployee"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tv_factory_employee"
-                    android:textSize="20sp"
-                    android:layout_weight="1"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_weight="9"
-                    android:id="@+id/tvFactory"/>
-            </LinearLayout>
-        </LinearLayout>
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp"
+    android:layout_weight="3"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:layout_marginTop="25sp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="30sp"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="30sp"
-            android:src="@drawable/ic_baseline_edit_24"
-            android:id="@+id/ivEditEmployee"/>
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/baloo_bhaina"
+            android:text="@string/tv_id_employee"
+            android:textSize="20sp" />
 
-        <ImageView
-            android:layout_width="30sp"
+        <TextView
+            android:id="@+id/tvIdEmployee"
+            android:layout_width="wrap_content"
             android:layout_height="30sp"
-            android:src="@drawable/ic_baseline_remove_circle_outline_24"
-            android:id="@+id/ivRemoveEmployee"/>
+            android:layout_weight="9"
+            android:fontFamily="@font/baloo_bhaina"
+            android:textSize="20sp" />
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30sp"
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/baloo_bhaina"
+            android:text="@string/tv_firstname_employee"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvFistNameEmployee"
+            android:layout_width="wrap_content"
+            android:layout_height="30sp"
+            android:layout_weight="9"
+            android:fontFamily="@font/baloo_bhaina"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30sp"
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/baloo_bhaina"
+            android:text="@string/tv_lastname_employee"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvLastNameEmployee"
+            android:layout_width="wrap_content"
+            android:layout_height="30sp"
+            android:layout_weight="9"
+            android:fontFamily="@font/baloo_bhaina"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30sp"
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/baloo_bhaina"
+            android:text="@string/tv_factory_employee"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvFactory"
+            android:layout_width="wrap_content"
+            android:layout_height="30sp"
+            android:layout_weight="9"
+            android:fontFamily="@font/baloo_bhaina"
+            android:textSize="20sp" />
+    </LinearLayout>
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal|center_vertical"
+    android:layout_marginTop="15dp"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/ivEditEmployee"
+        android:layout_width="30sp"
+        android:layout_height="30sp"
+        android:layout_marginRight="5dp"
+        app:tint="#E6CE39"
+        android:src="@drawable/ic_baseline_edit_24" />
+
+    <ImageView
+        android:id="@+id/ivRemoveEmployee"
+        android:layout_width="30sp"
+        android:layout_height="30sp"
+        app:tint="#FF0000"
+        android:src="@drawable/ic_baseline_remove_circle_outline_24" />
+</LinearLayout>
 </LinearLayout>

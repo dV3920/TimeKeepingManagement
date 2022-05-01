@@ -12,17 +12,8 @@
     <string name="tv_factory_employee">Phân xưởng:</string>
     <string name="name_layout_employee">DANH SÁCH CÔNG NHÂN</string>
 
-
     <string name="name_layout_product">danh sách sản phẩm</string>
     <string name="tv_id_product">Mã sản phẩm:</string>
     <string name="tv_name_product">Tên sản phẩm:</string>
     <string name="tv_price_product">Đơn giá:</string>
-
-    <string name="tv_sign_up">Đăng ký</string>
-    <string name="tv_sign_in">Đăng nhập</string>
-    <string name="tv_username">Tên đăng nhập</string>
-    <string name="tv_passwd">Mật khẩu</string>
-    <string name="thongKe">Thống kê</string>
-    <string name="account">Quản Lý Tài Khoản</string>
-    <string name="tv_id_account">Mã tài khoản</string>
 </resources>

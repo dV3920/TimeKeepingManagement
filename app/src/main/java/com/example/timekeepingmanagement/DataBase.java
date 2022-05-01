@@ -10,7 +10,6 @@ import androidx.annotation.Nullable;
 import com.example.timekeepingmanagement.entity.Employee;
 import com.example.timekeepingmanagement.entity.Product;
 import com.example.timekeepingmanagement.entity.TimeKeeping;
-import com.example.timekeepingmanagement.entity.Users;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -20,7 +19,7 @@ import java.util.Locale;
 
 public class DataBase extends SQLiteOpenHelper {
     public DataBase(@Nullable Context context) {
-        super(context, "TimeKeepingDb", null, 2);
+        super(context, "TimeKeepingDb", null, 1);
     }
 
     @Override
@@ -31,7 +30,6 @@ public class DataBase extends SQLiteOpenHelper {
                         "lastName text NOT NULL, " +
                         "factory text NOT NULL)";
         sqLiteDatabase.execSQL(sql);
-
         sql = "Create table Product (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "name text NOT NULL, " +
@@ -183,56 +181,4 @@ public class DataBase extends SQLiteOpenHelper {
         cursor.close();
         return data;
     }
-
-    public Boolean addUsers(Users users){
-        SQLiteDatabase database = getWritableDatabase();
-        try{
-            //database.execSQL("INSERT INTO Users(id, username, passwd, idEmployee) values(?,?,?,?)",new String[]{null, users.getUsername(), users.getPasswd(), users.getIdEmployee()+""});
-            String sql = "INSERT INTO Users(id, idEmployee, username, passwd) values(null,'"+users.getIdEmployee()+"','"+users.getUsername()+"','"+users.getPasswd()+"')";
-            database.execSQL(sql);
-            return true;
-        }catch (Exception e){
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    public Boolean checkLogin(String username, String passwd){
-        SQLiteDatabase database = getReadableDatabase();
-        String sql = "select * from users where username='"+username+"' and passwd='"+passwd+"'";
-        Cursor cursor = database.rawQuery(sql, null);
-        if(cursor.getCount()!=0){
-            return true;
-        }else{
-            return false;
-        }
-
-    }
-
-
-
-    public Boolean removeAccount(int id){
-        try{
-            SQLiteDatabase database = getWritableDatabase();
-            database.execSQL("Delete From Users where id=?",new Integer[]{id});
-            return true;
-        }catch (Exception e){
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    public Boolean editAccount(Users users){
-        try{
-            SQLiteDatabase database = getWritableDatabase();
-            database.execSQL("Update Users set username=?,passwd=?,idEmployee=? where id=?",new String[]{
-                    users.getUsername(), users.getPasswd(),users.getIdEmployee()+"",users.getId()+""
-            });
-            return true;
-        }catch (Exception e){
-            e.printStackTrace();
-            return false;
-        }
-    }
-
 }

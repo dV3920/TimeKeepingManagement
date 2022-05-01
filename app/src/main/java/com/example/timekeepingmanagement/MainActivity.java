@@ -8,26 +8,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.timekeepingmanagement.entity.Users;
-
 public class MainActivity extends AppCompatActivity {
-    Button btnProduct, btnEmployee, btnTimeKeeping, btnThongKe, btnAccount;
-    Users users;
+    Button btnProduct, btnEmployee, btnTimeKeeping;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setControl();
         setEvent();
-
     }
 
     void setControl(){
         btnProduct = findViewById(R.id.btnProduct);
         btnEmployee = findViewById(R.id.btnEmployee);
         btnTimeKeeping = findViewById(R.id.btnTimeKeeping);
-        btnThongKe = findViewById(R.id.btnThongKe);
-        btnAccount = findViewById(R.id.btnAccount);
     }
 
     void setEvent(){
@@ -53,26 +47,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Intent i = getIntent();
-        String username = i.getStringExtra("username");
-        if(username.equals("admin")) {
-            btnThongKe.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    startActivity(new Intent(getApplicationContext(), ThongKeActivity.class));
-                }
-            });
-
-            btnAccount.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    startActivity(new Intent(getApplicationContext(), AccountActivity.class));
-                }
-            });
-
-        }else{
-            btnThongKe.setVisibility(View.INVISIBLE);
-            btnAccount.setVisibility(View.INVISIBLE);
-        }
     }
 }

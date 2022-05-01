@@ -3,19 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/GiuaKy/TimeKeepingManagement/app/src/main/res/drawable/custom_button.xml" value="0.1485" />
-        <entry key="..\:/GiuaKy/TimeKeepingManagement/app/src/main/res/layout/activity_account.xml" value="0.22644927536231885" />
-        <entry key="..\:/GiuaKy/TimeKeepingManagement/app/src/main/res/layout/activity_add_account.xml" value="0.2246376811594203" />
-        <entry key="..\:/GiuaKy/TimeKeepingManagement/app/src/main/res/layout/activity_add_employee.xml" value="0.2246376811594203" />
-        <entry key="..\:/GiuaKy/TimeKeepingManagement/app/src/main/res/layout/activity_employee.xml" value="0.22644927536231885" />
-        <entry key="..\:/GiuaKy/TimeKeepingManagement/app/src/main/res/layout/activity_login.xml" value="0.22826086956521738" />
-        <entry key="..\:/GiuaKy/TimeKeepingManagement/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
-        <entry key="..\:/GiuaKy/TimeKeepingManagement/app/src/main/res/layout/activity_sign_up_activiry.xml" value="0.22826086956521738" />
-        <entry key="..\:/GiuaKy/TimeKeepingManagement/app/src/main/res/layout/activity_thong_ke.xml" value="0.22644927536231885" />
-        <entry key="..\:/GiuaKy/TimeKeepingManagement/app/src/main/res/layout/raw_account.xml" value="0.22644927536231885" />
-        <entry key="..\:/GiuaKy/TimeKeepingManagement/app/src/main/res/layout/raw_cham_cong.xml" value="0.22644927536231885" />
-        <entry key="..\:/GiuaKy/TimeKeepingManagement/app/src/main/res/layout/raw_employee.xml" value="0.22644927536231885" />
-        <entry key="..\:/GiuaKy/TimeKeepingManagement/app/src/main/res/layout/raw_product.xml" value="0.22644927536231885" />
         <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/activity_add_employee.xml" value="0.20244565217391305" />
         <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/activity_add_product.xml" value="0.25" />
         <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/activity_employee.xml" value="0.1" />

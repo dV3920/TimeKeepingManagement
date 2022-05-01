@@ -11,21 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TimeKeepingManagement">
-        <activity
-            android:name=".AddAccountActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AccountActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ThongKeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SignUpActiviry"
-            android:exported="false" />
+
         <activity
             android:name=".AddProductActivity"
             android:exported="false" />
@@ -45,7 +31,7 @@
             android:name=".AddChamCongActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

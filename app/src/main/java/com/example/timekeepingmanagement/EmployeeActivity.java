@@ -1,6 +1,7 @@
 package com.example.timekeepingmanagement;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,7 +21,7 @@ public class EmployeeActivity extends AppCompatActivity {
     ArrayList<Employee> data = new ArrayList<>();
     EmployeeAdapter employeeAdapter;
     FloatingActionButton btnAdd;
-
+    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class EmployeeActivity extends AppCompatActivity {
         db = new DataBase(getApplicationContext());
         lvListEmployee = findViewById(R.id.lvListEmployee);
         btnAdd = findViewById(R.id.floatingActionButton2);
+        searchView = findViewById(R.id.search);
     }
 
     void setEvent(){
@@ -46,6 +48,18 @@ public class EmployeeActivity extends AppCompatActivity {
                 Intent intent = new Intent(EmployeeActivity.this, AddEmployeeActivity.class);
                 intent.putExtra("isAdd",true);
                 startActivity(intent);
+            }
+        });
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                employeeAdapter.search(query);
+                return false;
             }
         });
     }

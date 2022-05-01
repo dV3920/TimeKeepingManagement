@@ -33,7 +33,8 @@ public class DataBase extends SQLiteOpenHelper {
         sql = "Create table Product (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "name text NOT NULL, " +
-                "price float NOT NULL)" ;
+                "price float NOT NULL," +
+                "image BLOB)";
         sqLiteDatabase.execSQL(sql);
         sql = "Create table TimeKeeping(\n" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -52,7 +53,7 @@ public class DataBase extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(sql);
 
         sqLiteDatabase.execSQL("INSERT INTO Employee values(?,?,?,?)",new String[]{"1","Nguyễn","Văn A","A"});
-        sqLiteDatabase.execSQL("INSERT INTO Product values(?,?,?)",new String[]{"1","Sắt","1000"});
+        sqLiteDatabase.execSQL("INSERT INTO Product values(?,?,?)",new String[]{"1","Sắt","1000", null});
         sqLiteDatabase.execSQL("INSERT INTO TimeKeeping values(?,?,datetime('now'))",new String[]{"1","1"});
         sqLiteDatabase.execSQL("INSERT INTO InfoTimeKeeping values(?,?,?,?)",new String[]{"1","0","10","1"});
     }

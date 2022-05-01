@@ -18,6 +18,7 @@ import androidx.annotation.Nullable;
 import com.example.timekeepingmanagement.AddEmployeeActivity;
 import com.example.timekeepingmanagement.AddProductActivity;
 import com.example.timekeepingmanagement.DataBase;
+import com.example.timekeepingmanagement.EmployeeActivity;
 import com.example.timekeepingmanagement.R;
 import com.example.timekeepingmanagement.entity.Employee;
 import com.example.timekeepingmanagement.entity.Product;
@@ -26,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeAdapter extends ArrayAdapter {
-    ArrayList<Employee> data;
+    ArrayList<Employee> data, databk;
     Context context;
     int resource;
 
@@ -34,6 +35,8 @@ public class EmployeeAdapter extends ArrayAdapter {
     public EmployeeAdapter(@NonNull Context context, int resource, @NonNull ArrayList<Employee> data) {
         super(context, resource, data);
         this.data = data;
+        this.databk = new ArrayList<>();
+        this.databk.addAll(data);
         this.context = context;
         this.resource = resource;
     }
@@ -97,5 +100,17 @@ public class EmployeeAdapter extends ArrayAdapter {
         });
 
         return convertView;
+    }
+
+    public void search(String query){
+        data.clear();
+        query=query.trim().toLowerCase();
+        for (Employee e: databk) {
+            if(e.toString().contains(query)){
+                data.add(e);
+            }
+        }
+
+        notifyDataSetInvalidated();
     }
 }

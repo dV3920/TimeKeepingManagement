@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.timekeepingmanagement.adapter.EmployeeAdapter;
+import com.example.timekeepingmanagement.adapter.EmployeeSpnAdapter;
 import com.example.timekeepingmanagement.adapter.TimeKeepingAdapter;
 import com.example.timekeepingmanagement.entity.Employee;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -28,7 +29,7 @@ public class AddChamCongActivity extends AppCompatActivity implements AdapterVie
     DataBase db;
     Boolean isAdd = true;
     ArrayList<Employee> data = new ArrayList<>();
-    EmployeeAdapter employeeAdapter;
+    EmployeeSpnAdapter employeeAdapter;
     Spinner spinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +47,7 @@ public class AddChamCongActivity extends AppCompatActivity implements AdapterVie
         calendarView = findViewById(R.id.calendarView);
         date_show = findViewById(R.id.date_show);
         spinner = findViewById(R.id.spinner);
-        spinner.setOnItemSelectedListener(this);
+
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
                     @Override
                     public void onSelectedDayChange(
@@ -64,12 +65,14 @@ public class AddChamCongActivity extends AppCompatActivity implements AdapterVie
                 });
         db = new DataBase(getApplicationContext());
         isAdd = (Boolean) getIntent().getSerializableExtra("isAdd");
-        employeeAdapter = new EmployeeAdapter(this,R.layout.activity_timekeeping,data);
+        employeeAdapter = new EmployeeSpnAdapter(this,R.layout.employee_spinner,db.readEmployees());
 
-        employeeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
         spinner.setAdapter(employeeAdapter);
 
     }
+
+
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {

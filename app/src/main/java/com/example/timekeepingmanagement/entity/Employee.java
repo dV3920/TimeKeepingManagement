@@ -45,6 +45,12 @@ public class Employee  implements Serializable {
         this.factory = factory;
     }
 
+    public String toString(){
+         String s= getId()+";"+getFirstName()+";"+getLastName()+";"+getFactory();
+        return s.toLowerCase();
+
+    }
+
     public Employee() {
     }
 }

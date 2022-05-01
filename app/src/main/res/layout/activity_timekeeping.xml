@@ -25,14 +25,15 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ngày:" />
+                android:text="Ngày:"
+                style="@style/txtStyle"
+                android:layout_weight="1"/>
 
             <EditText
                 android:id="@+id/date_show"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
+                android:layout_weight="2"
                 android:inputType="textPersonName"
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
@@ -47,12 +48,12 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Mã nhân viên:" />
+                android:text="Mã nhân viên:"
+                style="@style/txtStyle"/>
 
             <Spinner
                 android:id="@+id/spinner"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:spinnerMode="dropdown" />

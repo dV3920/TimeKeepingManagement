@@ -8,18 +8,17 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.SearchView;
 
-import com.example.timekeepingmanagement.adapter.EmployeeAdapter;
 import com.example.timekeepingmanagement.adapter.TimeKeepingAdapter;
-import com.example.timekeepingmanagement.entity.Employee;
 import com.example.timekeepingmanagement.entity.TimeKeeping;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ListChamCongActivity extends AppCompatActivity {
     ListView lvListChamCong;
-    SearchView inputSearch;
     DataBase db;
     ArrayList<TimeKeeping> data = new ArrayList<>();
     TimeKeepingAdapter timeKeepingAdapter;
@@ -41,6 +40,7 @@ public class ListChamCongActivity extends AppCompatActivity {
         init();
         timeKeepingAdapter = new TimeKeepingAdapter(this,R.layout.raw_cham_cong,data);
         lvListChamCong.setAdapter(timeKeepingAdapter);
+        timeKeepingAdapter.notifyDataSetChanged();
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,6 +48,7 @@ public class ListChamCongActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 
     private void setControl() {

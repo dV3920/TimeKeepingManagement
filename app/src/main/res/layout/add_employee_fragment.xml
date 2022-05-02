@@ -4,37 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddEmployeeActivity"
-    android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:layout_margin="20sp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Thêm nhân viên"
-            android:gravity="center_vertical"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:id="@+id/tvHeaderAddEmployee"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tv_id_employee"
-                android:textSize="20sp"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/edIdEmployee"
-                android:editable="false"/>
-        </LinearLayout>
+    android:orientation="vertical"
+    android:layout_marginTop="20dp"
+    android:layout_marginLeft="20dp"
+    android:paddingRight="10dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -43,12 +17,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tv_firstname_employee"
-                android:textSize="20sp"/>
+                style="@style/style4tvLabel"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edFirstNameEmployee"
-                android:inputType="textAutoComplete"/>
+                android:inputType="textAutoComplete"
+                style="@style/style4edInput"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -58,13 +33,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tv_lastname_employee"
-                android:inputType="textCapSentences"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                style="@style/style4tvLabel"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edLastNameEmployee"
-                android:inputType="text"/>
+                android:inputType="text"
+                style="@style/style4edInput"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -74,12 +50,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tv_factory_employee"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                style="@style/style4tvLabel"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edFactory"
-
+                style="@style/style4edInput"
                 android:inputType="text"/>
         </LinearLayout>
         <LinearLayout
@@ -88,14 +65,7 @@
             android:orientation="horizontal"
             android:layout_marginTop="20sp"
             android:padding="20sp">
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hủy "
-                android:textSize="20sp"
-                android:id="@+id/btnCancelEmployee"
-                android:layout_weight="1"
-                android:layout_marginRight="20sp"/>
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -106,5 +76,5 @@
                 android:layout_marginLeft="20sp"/>
         </LinearLayout>
 
-    </LinearLayout>
+
 </LinearLayout>

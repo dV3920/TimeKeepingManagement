@@ -13,7 +13,10 @@ import androidx.annotation.Nullable;
 import com.example.timekeepingmanagement.R;
 import com.example.timekeepingmanagement.entity.TimeKeeping;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class TimeKeepingAdapter extends ArrayAdapter {
     ArrayList<TimeKeeping> data;
@@ -39,7 +42,7 @@ public class TimeKeepingAdapter extends ArrayAdapter {
         TextView dateTimeKeeping = convertView.findViewById(R.id.idngay);
 
         TimeKeeping timeKeeping = data.get(position);
-        id.setText(timeKeeping.getId()+" ");
+        id.setText(timeKeeping.getId()+"");
         idEmployee.setText(Integer.toString(timeKeeping.getIdEmployee()));
         dateTimeKeeping.setText(timeKeeping.getDateTimeKeeping().toString());
 

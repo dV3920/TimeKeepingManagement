@@ -15,18 +15,16 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.timekeepingmanagement.AddEmployeeActivity;
-import com.example.timekeepingmanagement.AddProductActivity;
 import com.example.timekeepingmanagement.DataBase;
 import com.example.timekeepingmanagement.R;
 import com.example.timekeepingmanagement.entity.Employee;
-import com.example.timekeepingmanagement.entity.Product;
+
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class EmployeeAdapter extends ArrayAdapter {
-    ArrayList<Employee> data;
+    ArrayList<Employee> data, databk;
     Context context;
     int resource;
 
@@ -34,6 +32,8 @@ public class EmployeeAdapter extends ArrayAdapter {
     public EmployeeAdapter(@NonNull Context context, int resource, @NonNull ArrayList<Employee> data) {
         super(context, resource, data);
         this.data = data;
+        this.databk = new ArrayList<>();
+        this.databk.addAll(data);
         this.context = context;
         this.resource = resource;
     }
@@ -60,18 +60,18 @@ public class EmployeeAdapter extends ArrayAdapter {
 
 
 
-        ImageView ivEditEmployee= convertView.findViewById(R.id.ivEditEmployee);
+     //   ImageView ivEditEmployee= convertView.findViewById(R.id.ivEditEmployee);
         ImageView ivRemoveEmployee = convertView.findViewById(R.id.ivRemoveEmployee);
 
-        ivEditEmployee.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, AddEmployeeActivity.class);
-                intent.putExtra("isAdd",false);
-                intent.putExtra("Object",employee);
-                context.startActivity(intent);
-            }
-        });
+//        ivEditEmployee.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(context, AddEmployeeActivity.class);
+//                intent.putExtra("isAdd",false);
+//                intent.putExtra("Object",employee);
+//                context.startActivity(intent);
+//            }
+//        });
         ivRemoveEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,4 +98,20 @@ public class EmployeeAdapter extends ArrayAdapter {
 
         return convertView;
     }
+
+    public void search(String query){
+        data.clear();
+        query=query.trim().toLowerCase();
+        for (Employee e: databk) {
+            if(e.toString().contains(query)){
+                data.add(e);
+            }
+        }
+
+        notifyDataSetInvalidated();
+    }
+
+
+
+
 }

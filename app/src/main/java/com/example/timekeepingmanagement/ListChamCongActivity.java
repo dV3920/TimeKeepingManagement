@@ -15,7 +15,9 @@ import com.example.timekeepingmanagement.entity.TimeKeeping;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ListChamCongActivity extends AppCompatActivity {
     ListView lvListChamCong;
@@ -41,6 +43,7 @@ public class ListChamCongActivity extends AppCompatActivity {
         init();
         timeKeepingAdapter = new TimeKeepingAdapter(this,R.layout.raw_cham_cong,data);
         lvListChamCong.setAdapter(timeKeepingAdapter);
+        timeKeepingAdapter.notifyDataSetChanged();
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

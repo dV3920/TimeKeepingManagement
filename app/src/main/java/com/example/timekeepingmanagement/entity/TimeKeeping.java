@@ -36,6 +36,11 @@ public class TimeKeeping {
         this.dateTimeKeeping = dateTimeKeeping;
     }
 
-    public TimeKeeping() {
+    public TimeKeeping(int idEmployee, Date dateTimeKeeping) {
+        this.idEmployee = idEmployee;
+        this.dateTimeKeeping = dateTimeKeeping;
+    }
+    public TimeKeeping(){
+
     }
 }

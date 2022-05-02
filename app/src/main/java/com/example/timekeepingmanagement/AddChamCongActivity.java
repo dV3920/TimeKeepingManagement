@@ -1,12 +1,15 @@
 package com.example.timekeepingmanagement;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,19 +21,28 @@ import com.example.timekeepingmanagement.adapter.EmployeeAdapter;
 import com.example.timekeepingmanagement.adapter.EmployeeSpnAdapter;
 import com.example.timekeepingmanagement.adapter.TimeKeepingAdapter;
 import com.example.timekeepingmanagement.entity.Employee;
+import com.example.timekeepingmanagement.entity.TimeKeeping;
+
 import android.widget.AdapterView.OnItemSelectedListener;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 
-public class AddChamCongActivity extends AppCompatActivity {
+public class AddChamCongActivity extends AppCompatActivity{
     TextView date_show;
+    EditText idEmployee;
     CalendarView calendarView;
+    Button btnApply, btnCancel;
     DataBase db;
     Boolean isAdd = true;
     ArrayList<Employee> data = new ArrayList<>();
     EmployeeSpnAdapter employeeAdapter;
-    Spinner spinner;
+//    Spinner spinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,14 +52,47 @@ public class AddChamCongActivity extends AppCompatActivity {
     }
 
     private void setEvent() {
+        btnApply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Boolean isSuccess = true;
+//                if(isAdd){
+                try {
+                    isSuccess =  db.addTimeKeeping(getTimeKeeping());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                //                }
+//                else {
+//                    try {
+//                        isSuccess =  db.addTimeKeeping(getTimeKeeping());
+//                    } catch (ParseException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
 
+                Toast.makeText(getApplicationContext(), isSuccess ? "Thành công":"Lỗi" , Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(AddChamCongActivity.this, ListChamCongActivity.class);
+                startActivity(intent);
+            }
+        });
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 
     private void setControl() {
+        db = new DataBase(getApplicationContext());
         calendarView = findViewById(R.id.calendarView);
         date_show = findViewById(R.id.date_show);
-        spinner = findViewById(R.id.spinner);
-
+        idEmployee = findViewById(R.id.idEmployee);
+//        spinner = findViewById(R.id.spinner);
+//        spinner.setOnItemSelectedListener(this);
+        btnApply = findViewById(R.id.btnApplyTimeKeeping);
+        btnCancel = findViewById(R.id.btnCancelTimeKeeping);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
                     @Override
                     public void onSelectedDayChange(
@@ -57,20 +102,30 @@ public class AddChamCongActivity extends AppCompatActivity {
                             int dayOfMonth)
                     {
                         String Date
-                                = dayOfMonth + "-"
-                                + (month + 1) + "-" + year;
+                                = String.format("%02d",dayOfMonth) + "-"
+                                + String.format("%02d", (month + 1)) + "-" + year;
 
                         date_show.setText(Date);
                     }
                 });
-        db = new DataBase(getApplicationContext());
         isAdd = (Boolean) getIntent().getSerializableExtra("isAdd");
-        employeeAdapter = new EmployeeSpnAdapter(this,R.layout.employee_spinner,db.readEmployees());
-
-
-        spinner.setAdapter(employeeAdapter);
-
+//        employeeAdapter = new EmployeeSpnAdapter(this,R.layout.employee_spinner,db.readEmployees());
+//        spinner.setAdapter(employeeAdapter);
+    }
+    TimeKeeping getTimeKeeping() throws ParseException {
+        Date date = new SimpleDateFormat("dd-MM-yyyy").parse(date_show.getText().toString());
+        TimeKeeping timeKeeping = new TimeKeeping(Integer.parseInt(idEmployee.getText().toString().trim()),date);
+        return timeKeeping;
     }
 
-
+//    @Override
+//    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//        idEd = adapterView.getItemAtPosition(i).getId();
+//        Toast.makeText(getApplication(), "Bạn đã chọn mục:"+ idEd, Toast.LENGTH_LONG).show();
+//    }
+//
+//    @Override
+//    public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//    }
 }

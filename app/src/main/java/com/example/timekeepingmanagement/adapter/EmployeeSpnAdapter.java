@@ -61,4 +61,9 @@ public class EmployeeSpnAdapter  extends ArrayAdapter {
         }
         return convertView;
     }
+    public String getId(int position, View convertView, ViewGroup parent){
+        convertView = LayoutInflater.from(context).inflate(resource, null);
+        TextView textViewId = convertView.findViewById(R.id.spn_tv_id);
+        return textViewId.toString();
+    }
 }

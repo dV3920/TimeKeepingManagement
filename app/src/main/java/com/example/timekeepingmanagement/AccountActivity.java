@@ -22,7 +22,7 @@ public class AccountActivity extends AppCompatActivity {
     ListView lvAccount;
     ArrayList<Users> arrayAccout;
     AccountAdapter accountAdapter;
-    Button btnAdd;
+    Button btnBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +31,7 @@ public class AccountActivity extends AppCompatActivity {
         arrayAccout = new ArrayList<>();
         accountAdapter = new AccountAdapter(arrayAccout,this,R.layout.raw_account);
         lvAccount.setAdapter(accountAdapter);
+        btnBack = (Button) findViewById(R.id.btnBack);
         dataBase = new DataBase(getApplicationContext());
 
         String sql = "select * from Users";
@@ -45,6 +46,15 @@ public class AccountActivity extends AppCompatActivity {
 
 
         accountAdapter.notifyDataSetChanged();
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(AccountActivity.this,MainActivity.class);
+                i.putExtra("username","admin");
+                startActivity(i);
+            }
+        });
 
     }
 }

@@ -45,25 +45,17 @@ public class EmployeeSpnAdapter  extends ArrayAdapter {
 
     private View initView(int position, View convertView, ViewGroup parent)
     {
-
         convertView = LayoutInflater.from(context).inflate(resource, null);
-
 
         TextView textViewName = convertView.findViewById(R.id.spn_tv_name);
         TextView textViewId = convertView.findViewById(R.id.spn_tv_id);
         Employee currentItem = (Employee) getItem(position);
 
-        // It is used the name to the TextView when the
-        // current item is not null.
         if (currentItem != null) {
             textViewName.setText(currentItem.getFirstName()+" "+currentItem.getLastName());
             textViewId.setText(currentItem.getId()+" - ");
         }
         return convertView;
     }
-    public String getId(int position, View convertView, ViewGroup parent){
-        convertView = LayoutInflater.from(context).inflate(resource, null);
-        TextView textViewId = convertView.findViewById(R.id.spn_tv_id);
-        return textViewId.toString();
-    }
+
 }

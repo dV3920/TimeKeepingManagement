@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="style4tvLabel">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/alata</item>
+    </style>
+
+    <style name="style4edInput">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/baloo_bhaina</item>
+        <item name="android:layout_height">30sp</item>
+        <item name="android:layout_weight">9</item>
+        <item name="android:layout_marginLeft">10dp</item>
+    </style>
+
     <style name="style_pill_button">
         <item name="android:layout_width">146dp</item>
         <item name="android:layout_height">44dp</item>

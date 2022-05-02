@@ -9,16 +9,12 @@
         android:id="@+id/spn_tv_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="@android:color/black"
-        android:textSize="20sp" />
+        style="@style/style4edInput" />
 
     <TextView
         android:id="@+id/spn_tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="@android:color/black"
-        android:textSize="20sp" />
+        style="@style/style4edInput"/>
 
 </LinearLayout>

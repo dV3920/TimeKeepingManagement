@@ -32,7 +32,7 @@ public class DataBase extends SQLiteOpenHelper {
                         "factory text NOT NULL)";
         sqLiteDatabase.execSQL(sql);
         sql = "Create table Product (" +
-                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
                 "name text NOT NULL, " +
                 "price float NOT NULL)" ;
         sqLiteDatabase.execSQL(sql);
@@ -43,7 +43,7 @@ public class DataBase extends SQLiteOpenHelper {
                 "FOREIGN KEY(idEmployee) REFERENCES Employee(id))" ;
         sqLiteDatabase.execSQL(sql);
         sql ="Create table InfoTimeKeeping(\n" +
-                "idTime INTEGER, " +
+                "idTime INTEGER , " +
                 "idProduct INTEGER, " +
                 "num1Pro int NOT NULL, " +
                 "num0Pro int NOT NULL, " +
@@ -53,8 +53,13 @@ public class DataBase extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(sql);
 
         sqLiteDatabase.execSQL("INSERT INTO Employee values(?,?,?,?)",new String[]{"1","Nguyễn","Văn A","A"});
+
+        sqLiteDatabase.execSQL("INSERT INTO Product values(?,?,?,?)",new String[]{"1","Sắt","1000", null});
+        sqLiteDatabase.execSQL("INSERT INTO TimeKeeping values(?,?,?)",new String[]{"0","1", "Wed Oct 15 00:00:00 GMT+05:30 2008"});
+
         sqLiteDatabase.execSQL("INSERT INTO Product values(?,?,?)",new String[]{"1","Sắt","1000"});
         sqLiteDatabase.execSQL("INSERT INTO TimeKeeping values(?,?,datetime('now'))",new String[]{"1","1"});
+
         sqLiteDatabase.execSQL("INSERT INTO InfoTimeKeeping values(?,?,?,?)",new String[]{"1","0","10","1"});
     }
 
@@ -175,12 +180,33 @@ public class DataBase extends SQLiteOpenHelper {
         Cursor cursor = database.rawQuery(sql, null);
         if(cursor.moveToFirst()){
             do{
-                DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss",
+                DateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy",
                         Locale.ENGLISH);
                 data.add(new TimeKeeping(cursor.getInt(0), cursor.getInt(1), format.parse(cursor.getString(2))));
             }while (cursor.moveToNext());
         }
         cursor.close();
         return data;
+    }
+    public Boolean addTimeKeeping(TimeKeeping timeKeeping){
+        try{
+            SQLiteDatabase database = getWritableDatabase();
+            database.execSQL("INSERT INTO TimeKeeping(idEmployee, dateTimeKeeping) values(?,?)",new String[]{timeKeeping.getIdEmployee()+"", timeKeeping.getDateTimeKeeping().toString()});
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public Boolean editTimeKeeping(TimeKeeping timeKeeping){
+        try{
+            SQLiteDatabase database = getWritableDatabase();
+            database.execSQL("Update TimeKeeping set idEmployee=?,dateTimeKeeping=? where id=?",new String[]{timeKeeping.getIdEmployee()+"", timeKeeping.getDateTimeKeeping()+"",timeKeeping.getId()+""});
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
     }
 }

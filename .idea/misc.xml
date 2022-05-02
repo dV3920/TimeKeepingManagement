@@ -3,6 +3,26 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+
+        <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/activity_add_employee.xml" value="0.1" />
+        <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/activity_add_product.xml" value="0.25" />
+        <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/activity_employee.xml" value="0.1" />
+        <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/activity_timekeeping.xml" value="0.2188034188034188" />
+        <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/employee_spinner.xml" value="0.1" />
+        <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/list_cham_cong.xml" value="0.16" />
+        <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/raw_cham_cong.xml" value="0.20244565217391305" />
+        <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/spinner_nv.xml" value="0.19972826086956522" />
+        <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/drawable/color_btn_timesheet.xml" value="0.1255" />
+        <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/layout/activity_add_employee.xml" value="0.25" />
+        <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/layout/activity_add_product.xml" value="0.259375" />
+        <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/layout/activity_employee.xml" value="0.2" />
+        <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/layout/activity_info_time_keeping.xml" value="0.1" />
+        <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/layout/activity_product.xml" value="0.1" />
+        <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/layout/activity_timekeeping.xml" value="0.25" />
+        <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/layout/raw_employee.xml" value="0.1" />
+        <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/layout/raw_product.xml" value="0.264" />
+
         <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/drawable-xxhdpi/side_nav_bar.xml" value="0.1" />
         <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/drawable/color_btn_timesheet.xml" value="0.1255" />
         <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.122" />
@@ -36,6 +56,7 @@
         <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/menu/activity_main_drawer.xml" value="0.2553846153846154" />
         <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/menu/employee_navigation_menu.xml" value="0.2553846153846154" />
         <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/menu/search_menu.xml" value="0.17222222222222222" />
+
       </map>
     </option>
   </component>

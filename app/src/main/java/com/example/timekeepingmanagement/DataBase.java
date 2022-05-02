@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import com.example.timekeepingmanagement.entity.Employee;
 import com.example.timekeepingmanagement.entity.Product;
 import com.example.timekeepingmanagement.entity.TimeKeeping;
+import com.example.timekeepingmanagement.entity.Users;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -20,7 +21,7 @@ import java.util.Locale;
 
 public class DataBase extends SQLiteOpenHelper {
     public DataBase(@Nullable Context context) {
-        super(context, "TimeKeepingDb", null, 1);
+        super(context, "TimeKeepingDb", null, 2);
     }
 
     @Override
@@ -31,6 +32,7 @@ public class DataBase extends SQLiteOpenHelper {
                         "lastName text NOT NULL, " +
                         "factory text NOT NULL)";
         sqLiteDatabase.execSQL(sql);
+
         sql = "Create table Product (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
                 "name text NOT NULL, " +
@@ -188,10 +190,12 @@ public class DataBase extends SQLiteOpenHelper {
         cursor.close();
         return data;
     }
+
     public Boolean addTimeKeeping(TimeKeeping timeKeeping){
         try{
             SQLiteDatabase database = getWritableDatabase();
             database.execSQL("INSERT INTO TimeKeeping(idEmployee, dateTimeKeeping) values(?,?)",new String[]{timeKeeping.getIdEmployee()+"", timeKeeping.getDateTimeKeeping().toString()});
+
             return true;
         }catch (Exception e){
             e.printStackTrace();
@@ -199,14 +203,17 @@ public class DataBase extends SQLiteOpenHelper {
         }
     }
 
+
     public Boolean editTimeKeeping(TimeKeeping timeKeeping){
         try{
             SQLiteDatabase database = getWritableDatabase();
             database.execSQL("Update TimeKeeping set idEmployee=?,dateTimeKeeping=? where id=?",new String[]{timeKeeping.getIdEmployee()+"", timeKeeping.getDateTimeKeeping()+"",timeKeeping.getId()+""});
+
             return true;
         }catch (Exception e){
             e.printStackTrace();
             return false;
         }
     }
+
 }

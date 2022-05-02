@@ -77,6 +77,46 @@
             style="@style/btn_main"
             app:backgroundTint="@null" />
     </GridLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/btnAccount"
+            android:layout_width="170dp"
+            android:layout_height="120dp"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/color_btn_timesheet"
+            android:drawableTop="@mipmap/ic_timesheet1"
+            android:text="@string/account"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:backgroundTint="@null"/>
+        <Button
+            android:id="@+id/btnThongKe"
+            android:layout_width="170dp"
+            android:layout_height="120dp"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/color_btn_worker"
+            android:drawableTop="@mipmap/ic_timesheet1"
+            android:text="@string/thongKe"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:backgroundTint="@null"/>
+    </LinearLayout>
+
+
+
+
+
+
 
 
 </LinearLayout>

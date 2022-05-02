@@ -25,6 +25,7 @@ import com.example.timekeepingmanagement.entity.Employee;
 import com.example.timekeepingmanagement.entity.TimeKeeping;
 
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -104,7 +105,7 @@ public class AddChamCongActivity extends AppCompatActivity{
                                 + String.format("%02d", (month + 1)) + "-" + year;
 
 
-                        String Date = dayOfMonth + "-" + (month + 1) + "-" + year;
+                      //  String Date = dayOfMonth + "-" + (month + 1) + "-" + year;
 
                         date_show.setText(Date);
                     }
@@ -119,8 +120,8 @@ public class AddChamCongActivity extends AppCompatActivity{
         TimeKeeping timeKeeping = new TimeKeeping(Integer.parseInt(idEmployee.getText().toString().trim()),date);
         return timeKeeping;
 
-        employeeAdapter = new EmployeeSpnAdapter(this,R.layout.employee_spinner,db.readEmployees());
-        spinner.setAdapter(employeeAdapter);
+      //  employeeAdapter = new EmployeeSpnAdapter(this,R.layout.employee_spinner,db.readEmployees());
+     //   spinner.setAdapter(employeeAdapter);
 
     }
 

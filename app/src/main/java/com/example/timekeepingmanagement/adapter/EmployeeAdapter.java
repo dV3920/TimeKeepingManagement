@@ -58,20 +58,8 @@ public class EmployeeAdapter extends ArrayAdapter {
         tvLastName.setText(employee.getLastName());
         tvFactory.setText(employee.getFactory());
 
-
-
-     //   ImageView ivEditEmployee= convertView.findViewById(R.id.ivEditEmployee);
         ImageView ivRemoveEmployee = convertView.findViewById(R.id.ivRemoveEmployee);
 
-//        ivEditEmployee.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(context, AddEmployeeActivity.class);
-//                intent.putExtra("isAdd",false);
-//                intent.putExtra("Object",employee);
-//                context.startActivity(intent);
-//            }
-//        });
         ivRemoveEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -101,17 +89,12 @@ public class EmployeeAdapter extends ArrayAdapter {
 
     public void search(String query){
         data.clear();
-        query=query.trim().toLowerCase();
+        query = query.trim().toLowerCase();
         for (Employee e: databk) {
             if(e.toString().contains(query)){
                 data.add(e);
             }
         }
-
         notifyDataSetInvalidated();
     }
-
-
-
-
 }

@@ -8,19 +8,18 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.timekeepingmanagement.AccountActivity;
+
+
+
 import com.example.timekeepingmanagement.AddAccountActivity;
-import com.example.timekeepingmanagement.AddEmployeeActivity;
 import com.example.timekeepingmanagement.R;
-import com.example.timekeepingmanagement.entity.Employee;
+
 import com.example.timekeepingmanagement.entity.Users;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+
 import java.util.List;
 
 public class AccountAdapter extends BaseAdapter implements Serializable{

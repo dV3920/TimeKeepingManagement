@@ -53,13 +53,18 @@ public class DataBase extends SQLiteOpenHelper {
                 "FOREIGN KEY(idTime) REFERENCES TimeKeeping(id)," +
                 "FOREIGN KEY(idProduct) REFERENCES Product(id))"; // num1Pro: Số thành phẩm, num0Pro: số phế phẩm
         sqLiteDatabase.execSQL(sql);
+        sql ="Create table Users(\n" +
+                "id INTEGER , " +
+                "idEmployee INTEGER, username text, passwd text, "+
+                "FOREIGN KEY(idEmployee) REFERENCES Employee(id))";
+        sqLiteDatabase.execSQL(sql);
 
         sqLiteDatabase.execSQL("INSERT INTO Employee values(?,?,?,?)",new String[]{"1","Nguyễn","Văn A","A"});
-
-        sqLiteDatabase.execSQL("INSERT INTO Product values(?,?,?,?)",new String[]{"1","Sắt","1000", null});
-        sqLiteDatabase.execSQL("INSERT INTO TimeKeeping values(?,?,?)",new String[]{"0","1", "Wed Oct 15 00:00:00 GMT+05:30 2008"});
+        sqLiteDatabase.execSQL("INSERT INTO Users values(?,?,?,?)",new String[]{"1","1","admin","admin"});
 
         sqLiteDatabase.execSQL("INSERT INTO Product values(?,?,?)",new String[]{"1","Sắt","1000"});
+        sqLiteDatabase.execSQL("INSERT INTO TimeKeeping values(?,?,?)",new String[]{"0","1", "Wed Oct 15 00:00:00 GMT+05:30 2008"});
+
         sqLiteDatabase.execSQL("INSERT INTO TimeKeeping values(?,?,datetime('now'))",new String[]{"1","1"});
 
         sqLiteDatabase.execSQL("INSERT INTO InfoTimeKeeping values(?,?,?,?)",new String[]{"1","0","10","1"});
@@ -215,5 +220,52 @@ public class DataBase extends SQLiteOpenHelper {
             return false;
         }
     }
+    public Boolean removeAccount(int id){
+        try{
+            SQLiteDatabase database = getWritableDatabase();
+            database.execSQL("Delete From Users where id=?",new Integer[]{id});
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
 
+    public Boolean editAccount(Users users){
+        try{
+            SQLiteDatabase database = getWritableDatabase();
+            database.execSQL("Update Users set username=?,passwd=?,idEmployee=? where id=?",new String[]{
+                    users.getUsername(), users.getPasswd(),users.getIdEmployee()+"",users.getId()+""
+            });
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public Boolean checkLogin(String username, String passwd){
+        SQLiteDatabase database = getReadableDatabase();
+        String sql = "select * from users where username='"+username+"' and passwd='"+passwd+"'";
+        Cursor cursor = database.rawQuery(sql, null);
+        if(cursor.moveToFirst()){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
+    public Boolean addUsers(Users users){
+        SQLiteDatabase database = getWritableDatabase();
+        try{
+            //database.execSQL("INSERT INTO Users(id, username, passwd, idEmployee) values(?,?,?,?)",new String[]{null, users.getUsername(), users.getPasswd(), users.getIdEmployee()+""});
+            String sql = "INSERT INTO Users(id, idEmployee, username, passwd) values(null,'"+users.getIdEmployee()+"','"+users.getUsername()+"','"+users.getPasswd()+"')";
+            database.execSQL(sql);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

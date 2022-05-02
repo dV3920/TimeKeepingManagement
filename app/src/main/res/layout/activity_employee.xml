@@ -24,14 +24,13 @@
 <!--            android:textStyle="bold" />-->
 
         <androidx.appcompat.widget.SearchView
+            android:id="@+id/search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/search"
-            app:queryBackground="@null"
-            app:iconifiedByDefault="false"
+            android:layout_margin="10dp"
             android:background="@drawable/shapebgsearch"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"/>
+            app:iconifiedByDefault="false"
+            app:queryBackground="@null" />
 
         <ListView
             android:layout_width="match_parent"

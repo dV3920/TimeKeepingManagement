@@ -23,7 +23,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import java.util.ArrayList;
 
 
-public class AddChamCongActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class AddChamCongActivity extends AppCompatActivity {
     TextView date_show;
     CalendarView calendarView;
     DataBase db;
@@ -73,15 +73,4 @@ public class AddChamCongActivity extends AppCompatActivity implements AdapterVie
     }
 
 
-
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//        Employee employee = (Employee) adapterView.getSelectedItem();
-//        Toast.makeText(getApplicationContext(), "Selected Employee: " +  employee.getLastName() ,Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
-    }
 }

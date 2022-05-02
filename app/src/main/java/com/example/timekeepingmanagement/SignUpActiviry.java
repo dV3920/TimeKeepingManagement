@@ -36,8 +36,6 @@ public class SignUpActiviry extends AppCompatActivity {
                 if(db.checkLogin(users2.getUsername().toString().trim(),users2.getPasswd().toString().trim()) == false){
                     boolean a = db.addUsers(getUsers());
                     if(a){
-                        Intent i = new Intent(SignUpActiviry.this,LoginActivity.class);
-                        startActivity(i);
                         Toast.makeText(SignUpActiviry.this, "Đăng ký thành công!", Toast.LENGTH_SHORT).show();
                     }else{
                         Toast.makeText(SignUpActiviry.this, "Đăng ký thất bại!", Toast.LENGTH_SHORT).show();

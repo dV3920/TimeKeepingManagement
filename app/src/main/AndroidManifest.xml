@@ -25,9 +25,6 @@
             android:name=".ListChamCongActivity"
             android:exported="false" />
         <activity
-            android:name=".AddEmployeeActivity"
-            android:exported="false" />
-        <activity
             android:name=".AddChamCongActivity"
             android:exported="false" />
         <activity

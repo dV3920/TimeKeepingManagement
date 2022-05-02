@@ -16,4 +16,11 @@
     <string name="tv_id_product">Mã sản phẩm:</string>
     <string name="tv_name_product">Tên sản phẩm:</string>
     <string name="tv_price_product">Đơn giá:</string>
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+    <string name="list_employee_menu">Danh sách công nhân</string>
+    <string name="update_employee_menu">Cập nhật thông công nhân</string>
+    <string name="add_employee_menu">Thêm công nhân</string>
+    <string name="back_home_menu">Quay về trang chủ</string>
+
 </resources>

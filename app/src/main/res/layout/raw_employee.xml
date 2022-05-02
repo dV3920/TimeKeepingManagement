@@ -108,13 +108,13 @@ android:orientation="horizontal">
     android:layout_marginTop="15dp"
     android:orientation="horizontal">
 
-    <ImageView
-        android:id="@+id/ivEditEmployee"
-        android:layout_width="30sp"
-        android:layout_height="30sp"
-        android:layout_marginRight="5dp"
-        app:tint="#E6CE39"
-        android:src="@drawable/ic_baseline_edit_24" />
+<!--    <ImageView-->
+<!--        android:id="@+id/ivEditEmployee"-->
+<!--        android:layout_width="30sp"-->
+<!--        android:layout_height="30sp"-->
+<!--        android:layout_marginRight="5dp"-->
+<!--        app:tint="#E6CE39"-->
+<!--        android:src="@drawable/ic_baseline_edit_24" />-->
 
     <ImageView
         android:id="@+id/ivRemoveEmployee"

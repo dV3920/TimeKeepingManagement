@@ -15,16 +15,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.timekeepingmanagement.AddEmployeeActivity;
-import com.example.timekeepingmanagement.AddProductActivity;
 import com.example.timekeepingmanagement.DataBase;
-import com.example.timekeepingmanagement.EmployeeActivity;
 import com.example.timekeepingmanagement.R;
 import com.example.timekeepingmanagement.entity.Employee;
-import com.example.timekeepingmanagement.entity.Product;
+
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class EmployeeAdapter extends ArrayAdapter {
     ArrayList<Employee> data, databk;
@@ -63,18 +60,18 @@ public class EmployeeAdapter extends ArrayAdapter {
 
 
 
-        ImageView ivEditEmployee= convertView.findViewById(R.id.ivEditEmployee);
+     //   ImageView ivEditEmployee= convertView.findViewById(R.id.ivEditEmployee);
         ImageView ivRemoveEmployee = convertView.findViewById(R.id.ivRemoveEmployee);
 
-        ivEditEmployee.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, AddEmployeeActivity.class);
-                intent.putExtra("isAdd",false);
-                intent.putExtra("Object",employee);
-                context.startActivity(intent);
-            }
-        });
+//        ivEditEmployee.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(context, AddEmployeeActivity.class);
+//                intent.putExtra("isAdd",false);
+//                intent.putExtra("Object",employee);
+//                context.startActivity(intent);
+//            }
+//        });
         ivRemoveEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -113,4 +110,8 @@ public class EmployeeAdapter extends ArrayAdapter {
 
         notifyDataSetInvalidated();
     }
+
+
+
+
 }

@@ -57,7 +57,7 @@ public class EmployeeSpnAdapter  extends ArrayAdapter {
         // current item is not null.
         if (currentItem != null) {
             textViewName.setText(currentItem.getFirstName()+" "+currentItem.getLastName());
-            textViewId.setText("Mã: "+currentItem.getId()+" - Họ Tên: ");
+            textViewId.setText(currentItem.getId()+" - ");
         }
         return convertView;
     }

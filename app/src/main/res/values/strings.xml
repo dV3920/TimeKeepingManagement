@@ -26,4 +26,11 @@
     <string name="add_employee_menu">Thêm công nhân</string>
     <string name="back_home_menu">Quay về trang chủ</string>
 
+    <string name="tv_sign_up">Đăng ký</string>
+    <string name="tv_sign_in">Đăng nhập</string>
+    <string name="tv_username">Tên đăng nhập</string>
+    <string name="tv_passwd">Mật khẩu</string>
+    <string name="thongKe">Thống kê</string>
+    <string name="account">Quản Lý Tài Khoản</string>
+    <string name="tv_id_account">Mã tài khoản</string>
 </resources>

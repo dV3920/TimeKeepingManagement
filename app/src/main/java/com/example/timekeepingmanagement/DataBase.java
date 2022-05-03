@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import com.example.timekeepingmanagement.entity.Employee;
 import com.example.timekeepingmanagement.entity.Product;
 import com.example.timekeepingmanagement.entity.TimeKeeping;
+import com.example.timekeepingmanagement.entity.Users;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -20,7 +21,7 @@ import java.util.Locale;
 
 public class DataBase extends SQLiteOpenHelper {
     public DataBase(@Nullable Context context) {
-        super(context, "TimeKeepingDb", null, 1);
+        super(context, "TimeKeepingDb", null, 2);
     }
 
     @Override
@@ -31,8 +32,9 @@ public class DataBase extends SQLiteOpenHelper {
                         "lastName text NOT NULL, " +
                         "factory text NOT NULL)";
         sqLiteDatabase.execSQL(sql);
+
         sql = "Create table Product (" +
-                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
                 "name text NOT NULL, " +
                 "price float NOT NULL)" ;
         sqLiteDatabase.execSQL(sql);
@@ -43,7 +45,7 @@ public class DataBase extends SQLiteOpenHelper {
                 "FOREIGN KEY(idEmployee) REFERENCES Employee(id))" ;
         sqLiteDatabase.execSQL(sql);
         sql ="Create table InfoTimeKeeping(\n" +
-                "idTime INTEGER, " +
+                "idTime INTEGER , " +
                 "idProduct INTEGER, " +
                 "num1Pro int NOT NULL, " +
                 "num0Pro int NOT NULL, " +
@@ -51,10 +53,20 @@ public class DataBase extends SQLiteOpenHelper {
                 "FOREIGN KEY(idTime) REFERENCES TimeKeeping(id)," +
                 "FOREIGN KEY(idProduct) REFERENCES Product(id))"; // num1Pro: Số thành phẩm, num0Pro: số phế phẩm
         sqLiteDatabase.execSQL(sql);
+        sql ="Create table Users(\n" +
+                "id INTEGER , " +
+                "idEmployee INTEGER, username text, passwd text, "+
+                "FOREIGN KEY(idEmployee) REFERENCES Employee(id))";
+        sqLiteDatabase.execSQL(sql);
 
         sqLiteDatabase.execSQL("INSERT INTO Employee values(?,?,?,?)",new String[]{"1","Nguyễn","Văn A","A"});
+        sqLiteDatabase.execSQL("INSERT INTO Users values(?,?,?,?)",new String[]{"1","1","admin","admin"});
+
         sqLiteDatabase.execSQL("INSERT INTO Product values(?,?,?)",new String[]{"1","Sắt","1000"});
+        sqLiteDatabase.execSQL("INSERT INTO TimeKeeping values(?,?,?)",new String[]{"0","1", "Wed Oct 15 00:00:00 GMT+05:30 2008"});
+
         sqLiteDatabase.execSQL("INSERT INTO TimeKeeping values(?,?,datetime('now'))",new String[]{"1","1"});
+
         sqLiteDatabase.execSQL("INSERT INTO InfoTimeKeeping values(?,?,?,?)",new String[]{"1","0","10","1"});
     }
 
@@ -175,12 +187,107 @@ public class DataBase extends SQLiteOpenHelper {
         Cursor cursor = database.rawQuery(sql, null);
         if(cursor.moveToFirst()){
             do{
-                DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss",
+                DateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy",
                         Locale.ENGLISH);
                 data.add(new TimeKeeping(cursor.getInt(0), cursor.getInt(1), format.parse(cursor.getString(2))));
             }while (cursor.moveToNext());
         }
         cursor.close();
         return data;
+    }
+
+    public Boolean addTimeKeeping(TimeKeeping timeKeeping){
+        try{
+            SQLiteDatabase database = getWritableDatabase();
+            database.execSQL("INSERT INTO TimeKeeping(idEmployee, dateTimeKeeping) values(?,?)",new String[]{timeKeeping.getIdEmployee()+"", timeKeeping.getDateTimeKeeping().toString()});
+
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
+    public Boolean editTimeKeeping(TimeKeeping timeKeeping){
+        try{
+            SQLiteDatabase database = getWritableDatabase();
+            database.execSQL("Update TimeKeeping set idEmployee=?,dateTimeKeeping=? where id=?",new String[]{timeKeeping.getIdEmployee()+"", timeKeeping.getDateTimeKeeping()+"",timeKeeping.getId()+""});
+
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+    public Boolean removeAccount(int id){
+        try{
+            SQLiteDatabase database = getWritableDatabase();
+            database.execSQL("Delete From Users where id=?",new Integer[]{id});
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public Boolean editAccount(Users users){
+        try{
+            SQLiteDatabase database = getWritableDatabase();
+            database.execSQL("Update Users set username=?,passwd=?,idEmployee=? where id=?",new String[]{
+                    users.getUsername(), users.getPasswd(),users.getIdEmployee()+"",users.getId()+""
+            });
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public Boolean checkLogin(String username, String passwd){
+        SQLiteDatabase database = getReadableDatabase();
+        String sql = "select * from users where username='"+username+"' and passwd='"+passwd+"'";
+        Cursor cursor = database.rawQuery(sql, null);
+        if(cursor.moveToFirst()){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
+    public Boolean addUsers(Users users){
+        SQLiteDatabase database = getWritableDatabase();
+        try{
+            //database.execSQL("INSERT INTO Users(id, username, passwd, idEmployee) values(?,?,?,?)",new String[]{null, users.getUsername(), users.getPasswd(), users.getIdEmployee()+""});
+            String sql = "INSERT INTO Users(id, idEmployee, username, passwd) values(null,'"+users.getIdEmployee()+"','"+users.getUsername()+"','"+users.getPasswd()+"')";
+            database.execSQL(sql);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    //get phan xuong
+    public ArrayList<String> getPhanXuong(){
+        ArrayList<String> data = new ArrayList<>();
+        String sql = "select DISTINCT factory from employee";
+        SQLiteDatabase database = getReadableDatabase();
+        Cursor cursor = database.rawQuery(sql, null);
+        if(cursor.moveToFirst()){
+            do{
+                data.add(new String(cursor.getString(0)));
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+        return data;
+    }
+
+    public int getSoLuongCongNhan(String factory){
+        SQLiteDatabase database = getReadableDatabase();
+        String sql = "select * from employee where factory='"+factory+"'";
+        Cursor cursor = database.rawQuery(sql, null);
+        return cursor.getCount();
     }
 }

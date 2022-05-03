@@ -13,6 +13,10 @@
     <color name="text_shadow">#7F000000</color>
     <color name="text_shadow_white">#FFFFFF</color>
 
+    <color name="blue_200">#57BEFF</color>
+    <color name="blue_500">#187AFE</color>
+    <color name="blue_700">#0163E5</color>
+
     <color name="color1">#005073</color>
     <color name="color2">#107DAC</color>
     <color name="color3">#189AD3</color>

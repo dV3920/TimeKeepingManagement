@@ -39,4 +39,8 @@ public class Product implements Serializable {
 
     public Product() {
     }
+
+    public String toString(){
+        return this.id +  this.getName() + this.getPrice();
+    }
 }

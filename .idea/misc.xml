@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/GiuaKy/TimeKeepingManagement/app/src/main/res/drawable/header.xml" value="0.1" />
+        <entry key="..\:/GiuaKy/TimeKeepingManagement/app/src/main/res/layout/activity_account.xml" value="0.25" />
+        <entry key="..\:/GiuaKy/TimeKeepingManagement/app/src/main/res/layout/activity_employee.xml" value="0.12158054711246201" />
+        <entry key="..\:/GiuaKy/TimeKeepingManagement/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/GiuaKy/TimeKeepingManagement/app/src/main/res/layout/activity_main.xml" value="0.176" />
+        <entry key="..\:/GiuaKy/TimeKeepingManagement/app/src/main/res/layout/activity_sign_up_activiry.xml" value="0.21105072463768115" />
+        <entry key="..\:/GiuaKy/TimeKeepingManagement/app/src/main/res/layout/activity_thong_ke.xml" value="0.21105072463768115" />
         <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/activity_add_employee.xml" value="0.1" />
         <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/activity_add_product.xml" value="0.25" />
         <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/activity_employee.xml" value="0.1" />

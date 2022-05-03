@@ -268,4 +268,26 @@ public class DataBase extends SQLiteOpenHelper {
             return false;
         }
     }
+
+    //get phan xuong
+    public ArrayList<String> getPhanXuong(){
+        ArrayList<String> data = new ArrayList<>();
+        String sql = "select DISTINCT factory from employee";
+        SQLiteDatabase database = getReadableDatabase();
+        Cursor cursor = database.rawQuery(sql, null);
+        if(cursor.moveToFirst()){
+            do{
+                data.add(new String(cursor.getString(0)));
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+        return data;
+    }
+
+    public int getSoLuongCongNhan(String factory){
+        SQLiteDatabase database = getReadableDatabase();
+        String sql = "select * from employee where factory='"+factory+"'";
+        Cursor cursor = database.rawQuery(sql, null);
+        return cursor.getCount();
+    }
 }

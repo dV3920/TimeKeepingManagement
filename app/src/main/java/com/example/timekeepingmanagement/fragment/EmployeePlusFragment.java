@@ -7,16 +7,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-
 import com.example.timekeepingmanagement.database.DataBase;
-
 import com.example.timekeepingmanagement.R;
 import com.example.timekeepingmanagement.entity.Employee;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class EmployeePlusFragment extends Fragment {
     View convertView;
@@ -46,7 +44,9 @@ public class EmployeePlusFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Boolean isSuccess= db.addEmpoyee(getEmployee());
-                Toast.makeText(getContext(), isSuccess ? "Thành công":"Lỗi" , Toast.LENGTH_LONG).show();
+                new SweetAlertDialog(getContext(), isSuccess ? SweetAlertDialog.SUCCESS_TYPE : SweetAlertDialog.ERROR_TYPE)
+                        .setTitleText( isSuccess ? "Thành công" : "Thất bại")
+                        .show();
                 if(isSuccess){
                     edFirstName.setText("");
                     edLastName.setText("");

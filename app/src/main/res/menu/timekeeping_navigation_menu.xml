@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="HardcodedText">
+    <item
+        android:id="@+id/list_timekeeping_menu"
+        android:title="@string/list_timekeeping_menu" />
+
+    <item
+        android:id="@+id/add_timekeeping_menu"
+        android:title="@string/add_timekeeping_menu" />
+    <item
+        android:id="@+id/update_timekeeping_menu"
+        android:title="@string/update_timekeeping_menu" />
+
+    <item
+        android:id="@+id/back_home_menu"
+        android:title="@string/back_home_menu" />
+</menu>

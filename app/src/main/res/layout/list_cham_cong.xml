@@ -5,25 +5,16 @@
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:padding="16dp"
     android:orientation="vertical"
-    tools:context=".ListChamCongActivity">
+    tools:context=".fragment.ListTimeKeepingFragment">
 
-    <TextView
-        android:layout_width="fill_parent"
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Danh sách chấm công"
-        android:fontFamily="monospace"
-        android:textStyle="bold"
-        android:textSize="30sp"
-        android:textAlignment="center"/>
-
-    <SearchView
-        android:id="@+id/inputSearch"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:hint="Tìm kiếm công nhân"
-        android:iconifiedByDefault="true"
-        android:inputType="textVisiblePassword"
-        tools:ignore="TouchTargetSizeCheck" />
+        android:layout_margin="10dp"
+        android:background="@drawable/shapebgsearch"
+        app:iconifiedByDefault="false"
+        app:queryBackground="@null" />
 
     <ListView
         android:layout_width="match_parent"

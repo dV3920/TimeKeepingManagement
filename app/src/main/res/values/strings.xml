@@ -33,6 +33,17 @@
     <string name="thongKe">Thống kê</string>
     <string name="account">Quản Lý Tài Khoản</string>
     <string name="tv_id_account">Mã tài khoản</string>
+    <string name="profile">Thông tin cá nhân</string>
+    
+    
+     <string name="tv_sign_up">Đăng ký</string>
+    <string name="tv_sign_in">Đăng nhập</string>
+    <string name="tv_username">Tên đăng nhập</string>
+    <string name="tv_passwd">Mật khẩu</string>
+    <string name="thongKe">Thống kê</string>
+    <string name="account">Quản Lý Tài Khoản</string>
+    <string name="tv_id_account">Mã tài khoản</string>
+
     <string name="list_timekeeping_menu">Danh sách Chấm Công</string>
     <string name="update_timekeeping_menu">Cập nhật thông tin chấm công</string>
     <string name="add_timekeeping_menu">Thêm Chấm Công</string>

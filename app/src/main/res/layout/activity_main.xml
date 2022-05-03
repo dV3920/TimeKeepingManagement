@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity">
@@ -94,6 +93,15 @@
             android:background="@drawable/color_btn_worker"
             android:drawableTop="@mipmap/ic_timesheet1"
             android:text="@string/thongKe"
+            style="@style/btn_main"
+            app:backgroundTint="@null" />
+        <Button
+            android:id="@+id/btnProfile"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:background="@drawable/color_btn_profile"
+            android:drawableTop="@mipmap/ic_timesheet1"
+            android:text="@string/profile"
             style="@style/btn_main"
             app:backgroundTint="@null" />
     </GridLayout>

@@ -12,8 +12,8 @@ import com.example.timekeepingmanagement.fragment.ListTimeKeepingFragment;
 import com.example.timekeepingmanagement.entity.Users;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnProduct, btnEmployee, btnTimeKeeping, btnThongKe, btnAccount;
-    Users users;
+    Button btnProduct, btnEmployee, btnTimeKeeping, btnThongKe, btnAccount, btnProfile;
+    String id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,9 +29,20 @@ public class MainActivity extends AppCompatActivity {
         btnTimeKeeping = findViewById(R.id.btnTimeKeeping);
         btnThongKe = findViewById(R.id.btnThongKe);
         btnAccount = findViewById(R.id.btnAccount);
+        btnProfile = findViewById(R.id.btnProfile);
+        id = getIntent().getStringExtra("id");
     }
 
     void setEvent(){
+        btnProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                intent.putExtra("id",id);
+                startActivity(intent);
+            }
+        });
+
         btnProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
         btnEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         btnTimeKeeping.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,9 +67,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Intent i = getIntent();
-        String username = i.getStringExtra("username");
-        if(username.equals("admin")) {
+
+
+        if(id.equals("1") ) {
             btnThongKe.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

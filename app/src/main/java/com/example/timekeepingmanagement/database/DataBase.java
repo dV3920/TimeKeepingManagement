@@ -1,4 +1,4 @@
-package com.example.timekeepingmanagement;
+package com.example.timekeepingmanagement.database;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -26,7 +26,7 @@ public class DataBase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String sql = "Create table Employee (" +
+        String  sql = "Create table Employee (" +
                         "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         "firstName text NOT NULL, " +
                         "lastName text NOT NULL, " +
@@ -38,12 +38,14 @@ public class DataBase extends SQLiteOpenHelper {
                 "name text NOT NULL, " +
                 "price float NOT NULL)" ;
         sqLiteDatabase.execSQL(sql);
+
         sql = "Create table TimeKeeping(\n" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "idEmployee int, " +
                 "dateTimeKeeping datetime, " +
                 "FOREIGN KEY(idEmployee) REFERENCES Employee(id))" ;
         sqLiteDatabase.execSQL(sql);
+
         sql ="Create table InfoTimeKeeping(\n" +
                 "idTime INTEGER , " +
                 "idProduct INTEGER, " +
@@ -53,6 +55,7 @@ public class DataBase extends SQLiteOpenHelper {
                 "FOREIGN KEY(idTime) REFERENCES TimeKeeping(id)," +
                 "FOREIGN KEY(idProduct) REFERENCES Product(id))"; // num1Pro: Số thành phẩm, num0Pro: số phế phẩm
         sqLiteDatabase.execSQL(sql);
+
         sql ="Create table Users(\n" +
                 "id INTEGER , " +
                 "idEmployee INTEGER, username text, passwd text, "+
@@ -72,6 +75,25 @@ public class DataBase extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+
+    }
+
+    public Employee getEmployee(int id){
+        String sql = "select idEmployee from Users where idEmployee="+id;
+        SQLiteDatabase database = getReadableDatabase();
+        Cursor cursor = database.rawQuery(sql, null);
+        cursor.moveToFirst();
+        int idEmployee = cursor.getInt(0);
+
+        sql = "select * from Employee where id="+idEmployee;
+        cursor = database.rawQuery(sql, null);
+        cursor.moveToFirst();
+
+        try{
+            return new Employee(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getString(3));
+        } catch (Exception e){
+            return null;
+        }
 
     }
 
@@ -180,6 +202,7 @@ public class DataBase extends SQLiteOpenHelper {
             return false;
         }
     }
+
     public ArrayList<TimeKeeping> readTimeKeeping() throws ParseException {
         ArrayList<TimeKeeping> data = new ArrayList<>();
         String sql = "select * from timekeeping";
@@ -208,7 +231,6 @@ public class DataBase extends SQLiteOpenHelper {
         }
     }
 
-
     public Boolean editTimeKeeping(TimeKeeping timeKeeping){
         try{
             SQLiteDatabase database = getWritableDatabase();
@@ -220,6 +242,7 @@ public class DataBase extends SQLiteOpenHelper {
             return false;
         }
     }
+
     public Boolean removeAccount(int id){
         try{
             SQLiteDatabase database = getWritableDatabase();
@@ -244,14 +267,14 @@ public class DataBase extends SQLiteOpenHelper {
         }
     }
 
-    public Boolean checkLogin(String username, String passwd){
+    public int checkLogin(String username, String passwd){
         SQLiteDatabase database = getReadableDatabase();
         String sql = "select * from users where username='"+username+"' and passwd='"+passwd+"'";
         Cursor cursor = database.rawQuery(sql, null);
         if(cursor.moveToFirst()){
-            return true;
+            return cursor.getInt(0);
         }else{
-            return false;
+            return -1;
         }
 
     }

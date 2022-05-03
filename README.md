@@ -4,5 +4,5 @@
 - Phạm Thị Tuyết - Nhi N18DCAT057 - phamnhi1702
 - Lê Thị Mỹ Phụng - N18DCAT059 - mocqua
 - Huỳnh Đình Vũ - N18DCAT103 - boiprcvn3, dv3920
-### Performance:
+### Hiệu suất:
 ![](https://github.com/magnetohvcs/payload/blob/master/image/timekeep_commit.png)

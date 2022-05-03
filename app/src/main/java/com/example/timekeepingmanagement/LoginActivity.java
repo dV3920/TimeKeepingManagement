@@ -30,12 +30,16 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String username = txtUserName.getText().toString().trim(),
+                        password = txtPasswd.getText().toString().trim();
+
+
                 if(txtUserName.length() != 0 && txtPasswd.length() != 0){
-                    if(database.checkLogin(txtUserName.getText().toString().trim(),txtPasswd.getText().toString().trim())){
+                    int result = database.checkLogin(username,password);
+                    if(result != -1 ){
                         Intent i = new Intent(LoginActivity.this,MainActivity.class);
-                        i.putExtra("username",txtUserName.getText().toString());
+                        i.putExtra("id",result+"");
                         startActivity(i);
-                       // Toast.makeText(LoginActivity.this, "Đăng nhập thành công!!!", Toast.LENGTH_SHORT).show();
                     }else{
                         Toast.makeText(LoginActivity.this, "Đăng nhập thất bại!!!", Toast.LENGTH_SHORT).show();
                     }

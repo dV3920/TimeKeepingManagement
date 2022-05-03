@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import com.example.timekeepingmanagement.database.DataBase;
 import com.github.mikephil.charting.charts.PieChart;
@@ -25,7 +26,7 @@ public class ThongKeActivity extends AppCompatActivity {
         dataBase = new DataBase(getApplicationContext());
         ArrayList<String> arr = new ArrayList<>();
         arr = dataBase.getPhanXuong();
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ArrayList<PieEntry> visitors = new ArrayList<>();
         for(int i =0;i<arr.size();i++){
             visitors.add(new PieEntry(dataBase.getSoLuongCongNhan(arr.get(i)),arr.get(i)));
@@ -48,5 +49,11 @@ public class ThongKeActivity extends AppCompatActivity {
         pieChart.getDescription().setEnabled(false);
         pieChart.setCenterText("Nhân viên mỗi xưởng");
         pieChart.animate();
+    }
+
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        finish();
+        return true;
     }
 }

@@ -12,7 +12,7 @@ import com.example.timekeepingmanagement.entity.Users;
 
 public class MainActivity extends AppCompatActivity {
     Button btnProduct, btnEmployee, btnTimeKeeping, btnThongKe, btnAccount, btnProfile;
-    String username;
+    String id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         btnThongKe = findViewById(R.id.btnThongKe);
         btnAccount = findViewById(R.id.btnAccount);
         btnProfile = findViewById(R.id.btnProfile);
-        username = getIntent().getStringExtra("username");
+        id = getIntent().getStringExtra("id");
     }
 
     void setEvent(){
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
-                intent.putExtra("username",username);
+                intent.putExtra("id",id);
                 startActivity(intent);
             }
         });
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        if(username.equals("admin")) {
+        if(id.equals("1") ) {
             btnThongKe.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

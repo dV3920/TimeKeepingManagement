@@ -78,6 +78,25 @@ public class DataBase extends SQLiteOpenHelper {
 
     }
 
+    public Employee getEmployee(int id){
+        String sql = "select idEmployee from Users where idEmployee="+id;
+        SQLiteDatabase database = getReadableDatabase();
+        Cursor cursor = database.rawQuery(sql, null);
+        cursor.moveToFirst();
+        int idEmployee = cursor.getInt(0);
+
+        sql = "select * from Employee where id="+idEmployee;
+        cursor = database.rawQuery(sql, null);
+        cursor.moveToFirst();
+
+        try{
+            return new Employee(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getString(3));
+        } catch (Exception e){
+            return null;
+        }
+
+    }
+
     public ArrayList<Product> readProducts(){
         ArrayList<Product> data = new ArrayList<>();
         String sql = "select * from product";
@@ -183,6 +202,7 @@ public class DataBase extends SQLiteOpenHelper {
             return false;
         }
     }
+
     public ArrayList<TimeKeeping> readTimeKeeping() throws ParseException {
         ArrayList<TimeKeeping> data = new ArrayList<>();
         String sql = "select * from timekeeping";
@@ -211,7 +231,6 @@ public class DataBase extends SQLiteOpenHelper {
         }
     }
 
-
     public Boolean editTimeKeeping(TimeKeeping timeKeeping){
         try{
             SQLiteDatabase database = getWritableDatabase();
@@ -223,6 +242,7 @@ public class DataBase extends SQLiteOpenHelper {
             return false;
         }
     }
+
     public Boolean removeAccount(int id){
         try{
             SQLiteDatabase database = getWritableDatabase();
@@ -247,14 +267,14 @@ public class DataBase extends SQLiteOpenHelper {
         }
     }
 
-    public Boolean checkLogin(String username, String passwd){
+    public int checkLogin(String username, String passwd){
         SQLiteDatabase database = getReadableDatabase();
         String sql = "select * from users where username='"+username+"' and passwd='"+passwd+"'";
         Cursor cursor = database.rawQuery(sql, null);
         if(cursor.moveToFirst()){
-            return true;
+            return cursor.getInt(0);
         }else{
-            return false;
+            return -1;
         }
 
     }

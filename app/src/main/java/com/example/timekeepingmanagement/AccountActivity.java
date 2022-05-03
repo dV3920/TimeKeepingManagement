@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -22,12 +23,13 @@ public class AccountActivity extends AppCompatActivity {
     ListView lvAccount;
     ArrayList<Users> arrayAccout;
     AccountAdapter accountAdapter;
-    Button btnAdd;
+    ImageButton ibtnBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
         lvAccount = (ListView) findViewById(R.id.lvListAccount);
+        ibtnBack = (ImageButton) findViewById(R.id.ibtnBack);
         arrayAccout = new ArrayList<>();
         accountAdapter = new AccountAdapter(arrayAccout,this,R.layout.raw_account);
         lvAccount.setAdapter(accountAdapter);
@@ -45,6 +47,15 @@ public class AccountActivity extends AppCompatActivity {
 
 
         accountAdapter.notifyDataSetChanged();
+
+        ibtnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(AccountActivity.this,MainActivity.class);
+                i.putExtra("username","admin");
+                startActivity(i);
+            }
+        });
 
     }
 }

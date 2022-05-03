@@ -19,8 +19,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText txtUserName;
     EditText txtPasswd;
     DataBase database;
-    SQLiteDatabase TimeKeepingDb;
-    Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

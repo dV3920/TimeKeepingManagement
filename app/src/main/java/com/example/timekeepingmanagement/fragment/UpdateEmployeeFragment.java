@@ -8,7 +8,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -19,6 +18,8 @@ import com.example.timekeepingmanagement.adapter.EmployeeSpnAdapter;
 import com.example.timekeepingmanagement.entity.Employee;
 
 import java.util.ArrayList;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class UpdateEmployeeFragment  extends Fragment {
     View convertView;
@@ -61,12 +62,11 @@ public class UpdateEmployeeFragment  extends Fragment {
             @Override
             public void onClick(View view) {
                 updateCurrentItem();
-                boolean result = db.editEmployee(getCurrentSelect());
-                if (result){
-                    Toast.makeText(getContext(),"Cập nhật thành công",Toast.LENGTH_SHORT).show();
-                }
-                else Toast.makeText(getContext(),"Cập nhật thất bại", Toast.LENGTH_SHORT).show();
+                boolean isSuccess = db.editEmployee(getCurrentSelect());
 
+                new SweetAlertDialog(getContext(), isSuccess ? SweetAlertDialog.SUCCESS_TYPE : SweetAlertDialog.ERROR_TYPE)
+                        .setTitleText( isSuccess ? "Thành công" : "Thất bại")
+                        .show();
             }
         });
     }

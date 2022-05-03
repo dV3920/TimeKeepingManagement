@@ -23,11 +23,9 @@ import com.example.timekeepingmanagement.fragment.UpdateEmployeeFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class EmployeeActivity extends AppCompatActivity {
-   // SearchView searchView;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
     NavigationView navView;
-  //  Menu myMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +38,8 @@ public class EmployeeActivity extends AppCompatActivity {
     }
 
     void  setControl(){
-     //   searchView = findViewById(R.id.searchView);
         drawerLayout = findViewById(R.id.employee_draw);
         navView = findViewById(R.id.employee_nav_menu);
-
     }
 
 
@@ -77,19 +73,8 @@ public class EmployeeActivity extends AppCompatActivity {
         });
     }
 
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(R.menu.search_menu, menu);
-//        myMenu = menu;
-//        return super.onCreateOptionsMenu(menu);
-//    }
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        if(item.getItemId() == R.id.menu_action_search){
-//            Toast.makeText(this,"Hello search", Toast.LENGTH_SHORT).show();
-//        }
-
         if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }

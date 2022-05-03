@@ -7,15 +7,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.timekeepingmanagement.adapter.AccountAdapter;
+import com.example.timekeepingmanagement.database.DataBase;
 import com.example.timekeepingmanagement.entity.Users;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 
 public class AccountActivity extends AppCompatActivity {

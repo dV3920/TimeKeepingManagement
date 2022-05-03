@@ -2,38 +2,25 @@ package com.example.timekeepingmanagement;
 
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-
-import android.os.Bundle;
 
 import android.widget.CalendarView;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.timekeepingmanagement.adapter.EmployeeSpnAdapter;
 
-import com.example.timekeepingmanagement.adapter.TimeKeepingAdapter;
-import com.example.timekeepingmanagement.entity.Employee;
+import com.example.timekeepingmanagement.database.DataBase;
 import com.example.timekeepingmanagement.entity.TimeKeeping;
 
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Toast;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.Locale;
-
 
 
 public class AddChamCongActivity extends AppCompatActivity{

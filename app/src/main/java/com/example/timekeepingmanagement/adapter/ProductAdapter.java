@@ -16,7 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.timekeepingmanagement.AddProductActivity;
-import com.example.timekeepingmanagement.DataBase;
+import com.example.timekeepingmanagement.database.DataBase;
 import com.example.timekeepingmanagement.R;
 import com.example.timekeepingmanagement.entity.Product;
 

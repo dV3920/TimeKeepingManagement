@@ -7,21 +7,20 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 
-import com.example.timekeepingmanagement.DataBase;
+import com.example.timekeepingmanagement.database.DataBase;
 
 import com.example.timekeepingmanagement.R;
 import com.example.timekeepingmanagement.entity.Employee;
 
 public class EmployeePlusFragment extends Fragment {
     View convertView;
-    EditText edId, edFirstName, edLastName, edFactory;
+    EditText edFirstName, edLastName, edFactory;
     Button btnApply;
     DataBase db;
 
@@ -35,7 +34,6 @@ public class EmployeePlusFragment extends Fragment {
     }
 
     void setControl(){
-      //  edId = convertView.findViewById(R.id.edIdEmployee);
         edFirstName = convertView.findViewById(R.id.edFirstNameEmployee);
         edLastName = convertView.findViewById(R.id.edLastNameEmployee);
         edFactory = convertView.findViewById(R.id.edFactory);

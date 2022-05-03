@@ -30,4 +30,5 @@
     <string name="thongKe">Thống kê</string>
     <string name="account">Quản Lý Tài Khoản</string>
     <string name="tv_id_account">Mã tài khoản</string>
+    <string name="profile">Thông tin cá nhân</string>
 </resources>

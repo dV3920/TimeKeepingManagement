@@ -2,6 +2,7 @@ package com.example.timekeepingmanagement;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.timekeepingmanagement.database.DataBase;
 import com.example.timekeepingmanagement.entity.Employee;
+import com.example.timekeepingmanagement.fragment.ListEmployeeFragment;
 
 public class ProfileActivity extends AppCompatActivity {
     EditText id, firstname, lastname, factory;
@@ -19,15 +21,13 @@ public class ProfileActivity extends AppCompatActivity {
     Employee employee;
     DataBase db;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-      //  Toast.makeText(this,getIntent().getStringExtra("username"),Toast.LENGTH_SHORT).show();
         setControl();
         setEvent();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
     void setControl(){
@@ -46,7 +46,7 @@ public class ProfileActivity extends AppCompatActivity {
         firstname.setText(employee.getFirstName());
         lastname.setText(employee.getLastName());
         factory.setText(employee.getFactory());
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -67,6 +67,7 @@ public class ProfileActivity extends AppCompatActivity {
         factory.setText(employee.getFactory());
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         avt.setImageBitmap(db.getImage(employee.getId()));
+        getSupportActionBar().setTitle(R.string.profile);
         btnChangeAvt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

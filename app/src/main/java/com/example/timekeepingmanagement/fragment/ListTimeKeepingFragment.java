@@ -11,9 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.example.timekeepingmanagement.DataBase;
+
 import com.example.timekeepingmanagement.R;
 import com.example.timekeepingmanagement.adapter.TimeKeepingAdapter;
+import com.example.timekeepingmanagement.database.DataBase;
 import com.example.timekeepingmanagement.entity.TimeKeeping;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -46,13 +47,6 @@ public class ListTimeKeepingFragment extends Fragment {
         init();
         timeKeepingAdapter = new TimeKeepingAdapter(this.getContext(),R.layout.raw_cham_cong,data);
         lvListChamCong.setAdapter(timeKeepingAdapter);
-//        btnAdd.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(ListTimeKeepingFragment.this, TimeKeepingPlusFragment.class);
-//                startActivity(intent);
-//            }
-//        });
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

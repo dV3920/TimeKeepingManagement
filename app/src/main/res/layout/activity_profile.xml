@@ -1,38 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileActivity">
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:orientation="horizontal">-->
-<!--        <Button-->
-<!--            android:text="Thông tin"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_weight="1"-->
-<!--            android:id="@+id/btnInfo"-->
-<!--            style="@style/style4tvLabel"/>-->
-<!--        <Button-->
-<!--            android:text="Mật khẩu"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_weight="1"-->
-<!--            android:id="@+id/btnAcc"-->
-<!--            style="@style/style4tvLabel"/>-->
-<!--    </LinearLayout>-->
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/avatar"/>
+    <Button
+        android:layout_marginTop="130dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/btn_change_avt"
+        android:background="@drawable/ic_baseline_edit_24"/>
 
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="50dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="100dp">
+        android:layout_marginLeft="20dp">
         <TextView
             android:layout_row="0"
             android:layout_column="0"
@@ -89,9 +82,41 @@
         <Button
             android:layout_row="4"
             android:layout_column="1"
-            android:text="Lưu"
+            android:text="Lưu thông tin"
             android:id="@+id/btn_save"/>
+
+        <TextView
+            android:layout_row="6"
+            android:layout_column="0"
+            android:text="@string/tv_username"
+            style="@style/style4tvLabel"/>
+        <EditText
+            android:layout_row="6"
+            android:layout_column="1"
+            android:id="@+id/username"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            style="@style/style4edInput"/>
+        <TextView
+            android:layout_row="7"
+            android:layout_column="0"
+            android:text="@string/tv_passwd"
+            style="@style/style4tvLabel"
+            android:editable="false"/>
+        <EditText
+            android:layout_row="7"
+            android:layout_column="1"
+            android:id="@+id/password"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            style="@style/style4edInput"
+            android:inputType="textPassword"/>
+        <Button
+            android:layout_row="8"
+            android:layout_column="1"
+            android:text="Đổi mật khẩu"
+            android:id="@+id/btn_change_password"/>
 
     </GridLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

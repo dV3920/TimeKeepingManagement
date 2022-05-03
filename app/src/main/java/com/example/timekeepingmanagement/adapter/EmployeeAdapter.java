@@ -79,7 +79,7 @@ public class EmployeeAdapter extends ArrayAdapter {
                                     notifyDataSetChanged();
                                 }
                                     new SweetAlertDialog(getContext(), isSuccess ? SweetAlertDialog.SUCCESS_TYPE : SweetAlertDialog.ERROR_TYPE)
-                                            .setTitleText( isSuccess ? "Bạn đã xóa thành công" : "Thất bại")
+                                            .setTitleText( isSuccess ? "Thành công" : "Thất bại")
                                             .show();
 
                                 sDialog.dismissWithAnimation();

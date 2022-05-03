@@ -4,6 +4,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteStatement;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -30,7 +33,7 @@ public class DataBase extends SQLiteOpenHelper {
                         "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         "firstName text NOT NULL, " +
                         "lastName text NOT NULL, " +
-                        "factory text NOT NULL)";
+                        "factory text NOT NULL, Image BLOB)";
         sqLiteDatabase.execSQL(sql);
 
         sql = "Create table Product (" +
@@ -62,7 +65,7 @@ public class DataBase extends SQLiteOpenHelper {
                 "FOREIGN KEY(idEmployee) REFERENCES Employee(id))";
         sqLiteDatabase.execSQL(sql);
 
-        sqLiteDatabase.execSQL("INSERT INTO Employee values(?,?,?,?)",new String[]{"1","Nguyễn","Văn A","A"});
+        sqLiteDatabase.execSQL("INSERT INTO Employee values(?,?,?,?,?)",new String[]{"1","Nguyễn","Văn A","A",null});
         sqLiteDatabase.execSQL("INSERT INTO Users values(?,?,?,?)",new String[]{"1","1","admin","admin"});
 
         sqLiteDatabase.execSQL("INSERT INTO Product values(?,?,?)",new String[]{"1","Sắt","1000"});
@@ -79,7 +82,7 @@ public class DataBase extends SQLiteOpenHelper {
     }
 
     public Employee getEmployee(int id){
-        String sql = "select idEmployee from Users where idEmployee="+id;
+        String sql = "select idEmployee from Users where id="+id;
         SQLiteDatabase database = getReadableDatabase();
         Cursor cursor = database.rawQuery(sql, null);
         cursor.moveToFirst();
@@ -257,8 +260,8 @@ public class DataBase extends SQLiteOpenHelper {
     public Boolean editAccount(Users users){
         try{
             SQLiteDatabase database = getWritableDatabase();
-            database.execSQL("Update Users set username=?,passwd=?,idEmployee=? where id=?",new String[]{
-                    users.getUsername(), users.getPasswd(),users.getIdEmployee()+"",users.getId()+""
+            database.execSQL("Update Users set passwd=? where id=?",new String[]{
+                     users.getPasswd(),users.getId()+""
             });
             return true;
         }catch (Exception e){
@@ -313,4 +316,51 @@ public class DataBase extends SQLiteOpenHelper {
         Cursor cursor = database.rawQuery(sql, null);
         return cursor.getCount();
     }
+
+    public Users getUser(int id){
+        String sql = "select * from Users where id="+id;
+        SQLiteDatabase database = getReadableDatabase();
+        Cursor cursor = database.rawQuery(sql, null);
+        cursor.moveToFirst();
+
+        try{
+            return new Users(cursor.getInt(0),cursor.getString(2),cursor.getString(3),cursor.getInt(1));
+        } catch (Exception e){
+            return null;
+        }
+    }
+
+    public boolean storedImage(int id, byte[] data){
+        try{
+            SQLiteDatabase database = getWritableDatabase();
+            String sql = "Update Employee set Image=? where id=?";
+            SQLiteStatement insertStmt = database.compileStatement(sql);
+            insertStmt.bindBlob(1,data);
+            insertStmt.bindLong(2,id);
+
+            insertStmt.executeInsert();
+
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public Bitmap getImage(int id){
+        SQLiteDatabase database = getReadableDatabase();
+        String sql = "select Image from Employee where id=" + id ;
+        Cursor cur = database.rawQuery(sql, null);
+        cur.moveToFirst();
+        try {
+            byte[] imgByte = cur.getBlob(0);
+            cur.close();
+            return BitmapFactory.decodeByteArray(imgByte, 0, imgByte.length);
+        }catch (Exception e){
+
+            return null;
+        }
+
+    }
+
 }

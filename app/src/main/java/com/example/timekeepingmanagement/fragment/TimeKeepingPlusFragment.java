@@ -15,16 +15,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import com.example.timekeepingmanagement.DataBase;
 import com.example.timekeepingmanagement.R;
-import com.example.timekeepingmanagement.adapter.EmployeeSpnAdapter;
 
+import com.example.timekeepingmanagement.database.DataBase;
 import com.example.timekeepingmanagement.entity.TimeKeeping;
 
-<<<<<<< Updated upstream:app/src/main/java/com/example/timekeepingmanagement/AddChamCongActivity.java
-import android.widget.AdapterView.OnItemSelectedListener;
-=======
->>>>>>> Stashed changes:app/src/main/java/com/example/timekeepingmanagement/fragment/TimeKeepingPlusFragment.java
 import android.widget.Toast;
 
 import java.text.ParseException;
@@ -64,30 +59,15 @@ public class TimeKeepingPlusFragment extends Fragment {
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                //                }
-//                else {
-//                    try {
-//                        isSuccess =  db.addTimeKeeping(getTimeKeeping());
-//                    } catch (ParseException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
+
 
                 Toast.makeText(getContext(), isSuccess ? "Thành công":"Lỗi" , Toast.LENGTH_LONG).show();
-//                Intent intent = new Intent(TimeKeepingPlusFragment.this, ListTimeKeepingFragment.class);
-//                startActivity(intent);
                 if(isSuccess){
                     date_show.setText("");
                     idEmployee.setText("");
                 }
             }
         });
-//        btnCancel.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                onBackPressed();
-//            }
-//        });
     }
 
     private void setControl() {
@@ -107,45 +87,16 @@ public class TimeKeepingPlusFragment extends Fragment {
                 String Date
                         = String.format("%02d",dayOfMonth) + "-"
                         + String.format("%02d", (month + 1)) + "-" + year;
-
-
-<<<<<<< Updated upstream:app/src/main/java/com/example/timekeepingmanagement/AddChamCongActivity.java
-                      //  String Date = dayOfMonth + "-" + (month + 1) + "-" + year;
-=======
-//                        String Date = dayOfMonth + "-" + (month + 1) + "-" + year;
->>>>>>> Stashed changes:app/src/main/java/com/example/timekeepingmanagement/fragment/TimeKeepingPlusFragment.java
-
                 date_show.setText(Date);
             }
         });
-//        isAdd = (Boolean) getIntent().getSerializableExtra("isAdd");
 
-//        employeeAdapter = new EmployeeSpnAdapter(this,R.layout.employee_spinner,db.readEmployees());
-//        spinner.setAdapter(employeeAdapter);
     }
     TimeKeeping getTimeKeeping() throws ParseException {
         Date date = new SimpleDateFormat("dd-MM-yyyy").parse(date_show.getText().toString());
         TimeKeeping timeKeeping = new TimeKeeping(Integer.parseInt(idEmployee.getText().toString().trim()),date);
         return timeKeeping;
 
-<<<<<<< Updated upstream:app/src/main/java/com/example/timekeepingmanagement/AddChamCongActivity.java
-      //  employeeAdapter = new EmployeeSpnAdapter(this,R.layout.employee_spinner,db.readEmployees());
-     //   spinner.setAdapter(employeeAdapter);
-=======
-//        employeeAdapter = new EmployeeSpnAdapter(this,R.layout.employee_spinner,db.readEmployees());
-//        spinner.setAdapter(employeeAdapter);
->>>>>>> Stashed changes:app/src/main/java/com/example/timekeepingmanagement/fragment/TimeKeepingPlusFragment.java
-
     }
 
-//    @Override
-//    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//        idEd = adapterView.getItemAtPosition(i).getId();
-//        Toast.makeText(getApplication(), "Bạn đã chọn mục:"+ idEd, Toast.LENGTH_LONG).show();
-//    }
-//
-//    @Override
-//    public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//    }
 }

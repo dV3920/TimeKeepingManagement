@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.timekeepingmanagement.entity.Employee;
+import com.example.timekeepingmanagement.database.DataBase;
 import com.example.timekeepingmanagement.entity.Users;
 
 public class SignUpActiviry extends AppCompatActivity {
@@ -33,7 +33,8 @@ public class SignUpActiviry extends AppCompatActivity {
             public void onClick(View view) {
                 db = new DataBase(getApplicationContext());
                 Users users2 = getUsers();
-                if(db.checkLogin(users2.getUsername().toString().trim(),users2.getPasswd().toString().trim()) == false){
+                int result = db.checkLogin(users2.getUsername().toString().trim(),users2.getPasswd().toString().trim());
+                if( result != 1){
                     boolean a = db.addUsers(getUsers());
                     if(a){
                         Intent i = new Intent(SignUpActiviry.this,LoginActivity.class);

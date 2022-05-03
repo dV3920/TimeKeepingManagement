@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.timekeepingmanagement.database.DataBase;
 import com.example.timekeepingmanagement.entity.Product;
 
 public class AddProductActivity extends AppCompatActivity {

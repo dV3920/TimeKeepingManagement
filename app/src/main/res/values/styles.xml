@@ -100,6 +100,12 @@
         <item name="android:paddingBottom">12dp</item>
     </style>
 
+    <style name="bg_darkORwhite">
+        <item name="android:background">@color/black</item>
+    </style>
+
+
+
 <!--    <style name="btn_Them">-->
 <!--        <item name="android:layout_width">158dp</item>-->
 <!--        <item name="android:layout_height">45dp</item>-->

@@ -29,79 +29,87 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <GridLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center|center_horizontal|center_vertical"
-        android:foregroundGravity="center_vertical|center|center_horizontal"
-        android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/btnEmployee"
-            android:layout_row="0"
-            android:layout_column="0"
-            android:background="@drawable/color_btn_worker"
-            android:drawableTop="@mipmap/ic_worker1"
-            android:text="@string/workers"
-            app:backgroundTint="@null"
-            style="@style/btn_main" />
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|center_horizontal|center_vertical"
+            android:foregroundGravity="center_vertical|center|center_horizontal"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnProduct"
-            android:layout_row="0"
-            android:layout_column="1"
-            style="@style/btn_main"
-            android:background="@drawable/color_btn_product"
-            android:drawableTop="@mipmap/ic_product1"
-            android:text="@string/products"
-            app:backgroundTint="@null" />
+            <Button
+                android:id="@+id/btnEmployee"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:background="@drawable/color_btn_worker"
+                android:drawableTop="@mipmap/ic_worker1"
+                android:text="@string/workers"
+                app:backgroundTint="@null"
+                style="@style/btn_main" />
 
-        <Button
-            android:id="@+id/btnTimeKeeping"
-            android:layout_row="1"
-            android:layout_column="0"
-            style="@style/btn_main"
-            android:background="@drawable/color_btn_timekeeping"
-            android:drawableTop="@mipmap/ic_timekeeping1"
-            android:text="@string/timekeeping"
-            app:backgroundTint="@null" />
+            <Button
+                android:id="@+id/btnProduct"
+                android:layout_row="0"
+                android:layout_column="1"
+                style="@style/btn_main"
+                android:background="@drawable/color_btn_product"
+                android:drawableTop="@mipmap/ic_product1"
+                android:text="@string/products"
+                app:backgroundTint="@null" />
 
-        <Button
-            android:id="@+id/btnInfoTimeKeeping"
-            android:layout_row="1"
-            android:layout_column="1"
-            android:background="@drawable/color_btn_timesheet"
-            android:drawableTop="@mipmap/ic_timesheet1"
-            android:text="@string/timesheets"
-            style="@style/btn_main"
-            app:backgroundTint="@null" />
-        <Button
-            android:id="@+id/btnAccount"
-            android:layout_row="2"
-            android:layout_column="0"
-            style="@style/btn_main"
-            android:background="@drawable/color_btn_timesheet"
-            android:drawableTop="@mipmap/ic_account"
-            android:text="@string/account"
-            app:backgroundTint="@null" />
+            <Button
+                android:id="@+id/btnTimeKeeping"
+                android:layout_row="1"
+                android:layout_column="0"
+                style="@style/btn_main"
+                android:background="@drawable/color_btn_timekeeping"
+                android:drawableTop="@mipmap/ic_timekeeping1"
+                android:text="@string/timekeeping"
+                app:backgroundTint="@null" />
 
-        <Button
-            android:id="@+id/btnThongKe"
-            android:layout_row="2"
-            android:layout_column="1"
-            android:background="@drawable/color_btn_worker"
-            android:drawableTop="@mipmap/ic_chart"
-            android:text="@string/thongKe"
-            style="@style/btn_main"
-            app:backgroundTint="@null" />
-        <Button
-            android:id="@+id/btnProfile"
-            android:layout_row="3"
-            android:layout_column="0"
-            android:background="@drawable/color_btn_profile"
-            android:drawableTop="@mipmap/ic_timesheet1"
-            android:text="@string/profile"
-            style="@style/btn_main"
-            app:backgroundTint="@null" />
-    </GridLayout>
+            <Button
+                android:id="@+id/btnInfoTimeKeeping"
+                android:layout_row="1"
+                android:layout_column="1"
+                android:background="@drawable/color_btn_timesheet"
+                android:drawableTop="@mipmap/ic_timesheet1"
+                android:text="@string/timesheets"
+                style="@style/btn_main"
+                app:backgroundTint="@null" />
+            <Button
+                android:id="@+id/btnAccount"
+                android:layout_row="2"
+                android:layout_column="0"
+                style="@style/btn_main"
+                android:background="@drawable/color_btn_timesheet"
+                android:drawableTop="@mipmap/ic_account"
+                android:text="@string/account"
+                app:backgroundTint="@null" />
+
+            <Button
+                android:id="@+id/btnThongKe"
+                android:layout_row="2"
+                android:layout_column="1"
+                android:background="@drawable/color_btn_worker"
+                android:drawableTop="@mipmap/ic_chart"
+                android:text="@string/thongKe"
+                style="@style/btn_main"
+                app:backgroundTint="@null" />
+            <Button
+                android:id="@+id/btnProfile"
+                android:layout_row="3"
+                android:layout_column="0"
+                android:background="@drawable/color_btn_profile"
+                android:drawableTop="@mipmap/ic_account1"
+                android:text="@string/profile"
+                style="@style/btn_main"
+                app:backgroundTint="@null" />
+        </GridLayout>
+
+    </ScrollView>
+
+
 </LinearLayout>

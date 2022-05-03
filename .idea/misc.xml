@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< Updated upstream
         <entry key="..\:/GiuaKy/TimeKeepingManagement/app/src/main/res/drawable/header.xml" value="0.1" />
         <entry key="..\:/GiuaKy/TimeKeepingManagement/app/src/main/res/layout/activity_account.xml" value="0.25" />
         <entry key="..\:/GiuaKy/TimeKeepingManagement/app/src/main/res/layout/activity_employee.xml" value="0.12158054711246201" />
@@ -10,14 +11,25 @@
         <entry key="..\:/GiuaKy/TimeKeepingManagement/app/src/main/res/layout/activity_main.xml" value="0.176" />
         <entry key="..\:/GiuaKy/TimeKeepingManagement/app/src/main/res/layout/activity_sign_up_activiry.xml" value="0.21105072463768115" />
         <entry key="..\:/GiuaKy/TimeKeepingManagement/app/src/main/res/layout/activity_thong_ke.xml" value="0.21105072463768115" />
+=======
+>>>>>>> Stashed changes
         <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/activity_add_employee.xml" value="0.1" />
         <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/activity_add_product.xml" value="0.25" />
         <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/activity_employee.xml" value="0.1" />
         <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/activity_timekeeping.xml" value="0.2188034188034188" />
+        <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/add_employee_fragment.xml" value="0.12952898550724637" />
         <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/employee_spinner.xml" value="0.1" />
         <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/list_cham_cong.xml" value="0.16" />
+        <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/list_employee_fragment.xml" value="0.11145833333333334" />
         <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/raw_cham_cong.xml" value="0.20244565217391305" />
+        <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/raw_employee.xml" value="0.12952898550724637" />
         <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/spinner_nv.xml" value="0.19972826086956522" />
+<<<<<<< Updated upstream
+=======
+        <entry key="..\:/TimeKeepingManagement/app/src/main/res/layout/update_employee_fragment.xml" value="0.20244565217391305" />
+        <entry key="..\:/TimeKeepingManagement/app/src/main/res/menu/employee_navigation_menu.xml" value="0.20416666666666666" />
+        <entry key="..\:/TimeKeepingManagement/app/src/main/res/menu/timekeeping_navigation_menu.xml" value="0.20416666666666666" />
+>>>>>>> Stashed changes
         <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/drawable-xxhdpi/side_nav_bar.xml" value="0.1" />
         <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/drawable/color_btn_timesheet.xml" value="0.1255" />
         <entry key="..\:/Users/LOZ/AndroidStudioProjects/TimeKeepingManagement/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.122" />

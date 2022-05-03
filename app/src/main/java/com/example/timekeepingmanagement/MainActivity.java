@@ -6,7 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+
+import com.example.timekeepingmanagement.fragment.ListTimeKeepingFragment;
 
 import com.example.timekeepingmanagement.entity.Users;
 
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         btnTimeKeeping.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ListChamCongActivity.class);
+                Intent intent = new Intent(MainActivity.this, TimeKeepingActivity.class);
                 startActivity(intent);
             }
         });

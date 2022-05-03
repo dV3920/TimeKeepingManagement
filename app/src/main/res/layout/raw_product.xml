@@ -22,17 +22,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30sp"
                 android:layout_marginRight="10dp"
-                android:fontFamily="@font/baloo_bhaina"
                 android:text="@string/tv_id_product"
-                android:textSize="20sp" />
+                style="@style/style4tvLabel" />
 
             <TextView
                 android:id="@+id/tvId"
                 android:layout_width="wrap_content"
                 android:layout_height="30sp"
                 android:layout_weight="9"
-                android:fontFamily="@font/baloo_bhaina"
-                android:textSize="20sp" />
+                style="@style/style4edInput" />
         </LinearLayout>
 
         <LinearLayout
@@ -44,17 +42,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30sp"
                 android:layout_marginRight="10dp"
-                android:fontFamily="@font/baloo_bhaina"
                 android:text="@string/tv_name_product"
-                android:textSize="20sp" />
+                style="@style/style4tvLabel" />
 
             <TextView
                 android:id="@+id/tvName"
                 android:layout_width="wrap_content"
                 android:layout_height="30sp"
                 android:layout_weight="9"
-                android:fontFamily="@font/baloo_bhaina"
-                android:textSize="20sp" />
+                style="@style/style4edInput" />
         </LinearLayout>
 
         <LinearLayout
@@ -66,17 +62,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30sp"
                 android:layout_marginRight="10dp"
-                android:fontFamily="@font/baloo_bhaina"
                 android:text="@string/tv_price_product"
-                android:textSize="20sp" />
+                style="@style/style4tvLabel" />
 
             <TextView
                 android:id="@+id/tvPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="30sp"
                 android:layout_weight="9"
-                android:fontFamily="@font/baloo_bhaina"
-                android:textSize="20sp" />
+                style="@style/style4edInput" />
         </LinearLayout>
     </LinearLayout>
 

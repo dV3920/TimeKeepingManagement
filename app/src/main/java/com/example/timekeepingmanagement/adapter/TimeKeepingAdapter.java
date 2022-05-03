@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.timekeepingmanagement.R;
+import com.example.timekeepingmanagement.entity.Employee;
 import com.example.timekeepingmanagement.entity.TimeKeeping;
 
 import java.text.DateFormat;
@@ -19,12 +20,14 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 public class TimeKeepingAdapter extends ArrayAdapter {
-    ArrayList<TimeKeeping> data;
+    ArrayList<TimeKeeping> data,databk;
     Context context;
     int resource;
     public TimeKeepingAdapter(@NonNull Context context, int resource, @NonNull ArrayList<TimeKeeping> data) {
         super(context, resource, data);
         this.data=data;
+        this.databk = new ArrayList<>();
+        this.databk.addAll(data);
         this.context=context;
         this.resource=resource;
     }
@@ -56,5 +59,16 @@ public class TimeKeepingAdapter extends ArrayAdapter {
 //            }
 //        });
         return convertView;
+    }
+    public void search(String query){
+        data.clear();
+        query=query.trim().toLowerCase();
+        for (TimeKeeping e: databk) {
+            if(e.toString().contains(query)){
+                data.add(e);
+            }
+        }
+
+        notifyDataSetInvalidated();
     }
 }

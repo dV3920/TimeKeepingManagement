@@ -1,9 +1,11 @@
 package com.example.timekeepingmanagement;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
@@ -20,19 +22,30 @@ public class ProductActivity extends AppCompatActivity {
     ArrayList<Product> data = new ArrayList<>();
     ProductAdapter productAdapter;
     FloatingActionButton btnAddProduct;
+    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
+        getSupportActionBar().setTitle(R.string.name_layout_product);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         setControl();
         setEvent();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        onBackPressed();
+        return true;
     }
 
     void  setControl(){
         db = new DataBase(getApplicationContext());
         lvListProduct = findViewById(R.id.lvListProduct);
         btnAddProduct = findViewById(R.id.floatingActionButton2);
+        searchView = findViewById(R.id.searchProduct);
     }
 
     void setEvent(){
@@ -45,6 +58,19 @@ public class ProductActivity extends AppCompatActivity {
                 Intent intent = new Intent(ProductActivity.this, AddProductActivity.class);
                 intent.putExtra("isAdd",true);
                 startActivity(intent);
+            }
+        });
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                productAdapter.search(query);
+                return false;
             }
         });
     }

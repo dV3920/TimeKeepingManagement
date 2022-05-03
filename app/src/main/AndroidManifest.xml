@@ -39,10 +39,7 @@
             android:name=".EmployeeActivity"
             android:exported="false" />
         <activity
-            android:name=".ListChamCongActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AddChamCongActivity"
+            android:name=".TimeKeepingActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"

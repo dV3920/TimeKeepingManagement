@@ -16,6 +16,9 @@
     <string name="tv_id_product">Mã sản phẩm:</string>
     <string name="tv_name_product">Tên sản phẩm:</string>
     <string name="tv_price_product">Đơn giá:</string>
+    <string name="name_layout_add_product">Thêm sản phẩm</string>
+    <string name="name_layout_edit_product">Sửa sản phẩm</string>
+
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
     <string name="list_employee_menu">Danh sách công nhân</string>
@@ -40,6 +43,7 @@
     <string name="thongKe">Thống kê</string>
     <string name="account">Quản Lý Tài Khoản</string>
     <string name="tv_id_account">Mã tài khoản</string>
+
     <string name="list_timekeeping_menu">Danh sách Chấm Công</string>
     <string name="update_timekeeping_menu">Cập nhật thông tin chấm công</string>
     <string name="add_timekeeping_menu">Thêm Chấm Công</string>

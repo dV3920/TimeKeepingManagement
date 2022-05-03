@@ -3,6 +3,7 @@ package com.example.timekeepingmanagement;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,8 @@ import android.widget.Button;
 import com.example.timekeepingmanagement.fragment.ListTimeKeepingFragment;
 
 import com.example.timekeepingmanagement.entity.Users;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class MainActivity extends AppCompatActivity {
     Button btnProduct, btnEmployee, btnTimeKeeping, btnThongKe, btnAccount, btnProfile;
@@ -47,6 +50,13 @@ public class MainActivity extends AppCompatActivity {
         btnProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(id.equals("1") != true){
+                    new SweetAlertDialog(MainActivity.this, SweetAlertDialog.ERROR_TYPE)
+                            .setTitleText("Oops...")
+                            .setContentText("Bạn không có quyền truy cập")
+                            .show();
+                    return;
+                }
             Intent intent = new Intent(MainActivity.this, ProductActivity.class);
                startActivity(intent);
 
@@ -56,6 +66,13 @@ public class MainActivity extends AppCompatActivity {
         btnEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(id.equals("1") != true){
+                    new SweetAlertDialog(MainActivity.this, SweetAlertDialog.ERROR_TYPE)
+                            .setTitleText("Oops...")
+                            .setContentText("Bạn không có quyền truy cập")
+                            .show();
+                    return;
+                }
                Intent intent = new Intent(MainActivity.this, EmployeeActivity.class);
                 startActivity(intent);
             }
@@ -69,11 +86,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        if(id.equals("1") ) {
             btnThongKe.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    if(id.equals("1") != true){
+                        new SweetAlertDialog(MainActivity.this, SweetAlertDialog.ERROR_TYPE)
+                                .setTitleText("Oops...")
+                                .setContentText("Bạn không có quyền truy cập")
+                                .show();
+                        return;
+                    }
                     startActivity(new Intent(getApplicationContext(), ThongKeActivity.class));
                 }
             });
@@ -81,13 +103,17 @@ public class MainActivity extends AppCompatActivity {
             btnAccount.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    if(id.equals("1") != true){
+                        new SweetAlertDialog(MainActivity.this, SweetAlertDialog.ERROR_TYPE)
+                                .setTitleText("Oops...")
+                                .setContentText("Bạn không có quyền truy cập")
+                                .show();
+                        return;
+                    }
                     startActivity(new Intent(getApplicationContext(), AccountActivity.class));
                 }
             });
 
-        }else{
-            btnThongKe.setVisibility(View.INVISIBLE);
-            btnAccount.setVisibility(View.INVISIBLE);
-        }
+
     }
 }

@@ -18,12 +18,14 @@ import androidx.annotation.Nullable;
 import com.example.timekeepingmanagement.AddProductActivity;
 import com.example.timekeepingmanagement.DataBase;
 import com.example.timekeepingmanagement.R;
+import com.example.timekeepingmanagement.entity.Employee;
 import com.example.timekeepingmanagement.entity.Product;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductAdapter extends ArrayAdapter {
-    List<Product> data;
+    List<Product> data, databk;
     Context context;
     int resource;
 
@@ -31,6 +33,8 @@ public class ProductAdapter extends ArrayAdapter {
     public ProductAdapter(@NonNull Context context, int resource, @NonNull List<Product> data) {
         super(context, resource, data);
         this.data = data;
+        this.databk = new ArrayList<>();
+        this.databk.addAll(data);
         this.context = context;
         this.resource = resource;
     }
@@ -47,10 +51,12 @@ public class ProductAdapter extends ArrayAdapter {
         TextView tvId = convertView.findViewById(R.id.tvId);
         TextView tvName = convertView.findViewById(R.id.tvName);
         TextView tvPrice = convertView.findViewById(R.id.tvPrice);
+
         Product product = data.get(position);
         tvId.setText(product.getId()+" ");
         tvName.setText(product.getName());
         tvPrice.setText(product.getPrice()+"");
+
         ImageView ivEditProduct = convertView.findViewById(R.id.ivEditProduct);
         ImageView ivRemoveProduct = convertView.findViewById(R.id.ivRemoveProduct);
         ivEditProduct.setOnClickListener(new View.OnClickListener() {
@@ -87,5 +93,17 @@ public class ProductAdapter extends ArrayAdapter {
         });
 
         return convertView;
+    }
+
+    public void search(String query){
+        data.clear();
+        query=query.trim().toLowerCase();
+        for (Product p: databk) {
+            if(p.toString().contains(query)){
+                data.add(p);
+            }
+        }
+
+        notifyDataSetInvalidated();
     }
 }

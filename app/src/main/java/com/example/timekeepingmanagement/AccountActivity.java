@@ -38,7 +38,7 @@ public class AccountActivity extends AppCompatActivity {
         Cursor cursor = databases.rawQuery(sql, null);
         if(cursor.moveToFirst()){
             do{
-                arrayAccout.add(new Users(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getInt(3)));
+                arrayAccout.add(new Users(cursor.getInt(0), cursor.getInt(1), cursor.getString(2), cursor.getString(3)));
             }while (cursor.moveToNext());
         }
         cursor.close();
@@ -46,6 +46,9 @@ public class AccountActivity extends AppCompatActivity {
     }
 
     public boolean onOptionsItemSelected(MenuItem item){
+//        Intent i = new Intent(AccountActivity.this,MainActivity.class);
+//        i.putExtra("id",1);
+//        startActivity(i);
         finish();
         return true;
     }

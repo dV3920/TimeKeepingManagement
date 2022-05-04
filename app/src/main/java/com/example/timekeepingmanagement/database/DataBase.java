@@ -324,7 +324,7 @@ public class DataBase extends SQLiteOpenHelper {
         cursor.moveToFirst();
 
         try{
-            return new Users(cursor.getInt(0),cursor.getString(2),cursor.getString(3),cursor.getInt(1));
+            return new Users(cursor.getInt(0),cursor.getInt(1),cursor.getString(2),cursor.getString(3));
         } catch (Exception e){
             return null;
         }

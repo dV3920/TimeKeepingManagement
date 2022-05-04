@@ -61,6 +61,6 @@ public class SignUpActiviry extends AppCompatActivity {
         String username = edUsername.getText().toString(),
                 passwd = edPasswd.getText().toString(),
                 idEmployee = edIdEmployee.getText().toString();
-        return new Users(0,username,passwd,Integer.parseInt(idEmployee));
+        return new Users(0,Integer.parseInt(idEmployee),username,passwd);
     }
 }

@@ -36,7 +36,7 @@ public class Users {
         this.passwd = passwd;
     }
 
-    public Users(int id, String username, String passwd, int idEmployee) {
+    public Users(int id, int idEmployee,String username, String passwd) {
         this.id = id;
         this.idEmployee = idEmployee;
         this.username = username;

@@ -101,6 +101,6 @@ public class AddAccountActivity extends AppCompatActivity {
 
 
 
-        return new Users(Integer.valueOf(aId),aUsername,aPasswd,Integer.valueOf(aIdEmployee));
+        return new Users(Integer.valueOf(aId),Integer.valueOf(aIdEmployee),aUsername,aPasswd);
     }
 }

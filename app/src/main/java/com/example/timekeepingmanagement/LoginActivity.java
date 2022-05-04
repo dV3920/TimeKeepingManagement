@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.timekeepingmanagement.database.DataBase;
+import com.example.timekeepingmanagement.entity.Users;
 
 public class LoginActivity extends AppCompatActivity {
     Button btnLogin;
@@ -18,6 +20,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText txtUserName;
     EditText txtPasswd;
     DataBase database;
+    Users users;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,10 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//                SQLiteDatabase db = database.getWritableDatabase();
+//                db.execSQL("Update Users set id=? where username=? and passwd=?",new String[]{
+//                        1+"","admin","admin"});
+
                 String username = txtUserName.getText().toString().trim(),
                         password = txtPasswd.getText().toString().trim();
 
